@@ -1,4 +1,4 @@
-# Lab 5: Introduction
+# Lab 5: Introduction (This lab is currently undergoing construction in accordance with the latest releases of the service)
 
 ## QnA Maker Setup
 
