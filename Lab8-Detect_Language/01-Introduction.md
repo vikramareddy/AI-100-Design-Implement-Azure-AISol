@@ -1,4 +1,4 @@
-# Lab 8: Introduction
+# Lab 8: Introduction (This lab is currently undergoing construction in accordance with the latest releases of the service)
 
 ## Detect User Language
 
