@@ -44,11 +44,9 @@ The training API key allows you to create, manage and train Custom Vision projec
 
 We'll primarily be using the [Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) Cognitive Service, so let's create an API key for that service.
 
-In the Portal, click the **"+ New"** button (when you hover over it, it will say **Create a resource**) and then enter **computer vision** in the search box and choose **Computer Vision API**:
+In the Portal, click the **"+ Create Resource"** button and then enter **computer vision** in the search box and choose **Computer Vision** from the available options.  By choosing Create, Azure will open the Create blade:
 
-![Creating a Cognitive Service Key](../../Linked_Image_Files/new-cognitive-services.PNG)
-
-This will lead you to fill out a few details for the API endpoint you'll be creating, choosing the API you're interested in and where you'd like your endpoint to reside (**!!put in the West US region or it will not work!!**), as well as what pricing plan you'd like. We'll be using **S1** so that we have the throughput we need for the tutorial. _Pin to dashboard_ so that you can easily find it. Since the Computer Vision API stores images internally at Microsoft (in a secure fashion), to help improve future Cognitive Services Vision offerings, you'll need to check the box that states you're ok with this before you can create the resource.
+This will lead you to fill out a few details for the API endpoint you'll be creating, choosing a name and where you'd like your endpoint to reside (**!!put in the West US region or it will not work!!**), as well as what pricing tier you'd like. We'll be using **S1** so that we have the throughput we need for the tutorial.
 
 **Double check that you put your Computer Vision service in West US**
 
