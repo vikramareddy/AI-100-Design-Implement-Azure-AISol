@@ -1,6 +1,6 @@
 # Lab 5: Introduction
 
-In this lab you will use the Microsoft QnA Maker application to create a knowledgebase, publish it and then consumer it in your bot.
+In this lab you will use the Microsoft QnA Maker application to create a knowledgebase, publish it and then consume it in your bot.
 
 ## QnA Maker Setup
 
