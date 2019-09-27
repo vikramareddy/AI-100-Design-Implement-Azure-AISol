@@ -43,23 +43,11 @@ Over the course of this lab, we will collect a variety of Cognitive Services key
 
 ### Azure Setup
 
-You can utilize the provided [Azure ARM template](template.json) to create your resources, or you can manually create them using the following series of steps.
-
-####    ARM Template deployment
-
-1.  Open the [Azure Portal](https://portal.azure.com)
-
-1.  Create a new resource group, then click **Export template**
-
-1.  Click **Deploy**
-
-1.  Click **Edit template**, copy the template.json contents into the textarea, then click **Save**
-
-1.  Check the checkbox, then click **Purchase**.  It will take about 10 minutes to deploy all the resources, with CosmosDB being the resource that should take the longest.
+In the following steps, you will configure the Azure environment for the labs that follow.
 
 ####    Cognitive Services
 
-We'll primarily be using the [Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) Cognitive Service, so let's create an API key for that service.
+While the first lab focuses on the [Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) Cognitive Service, Microsoft Azure allows you to create a cognitive service account that spans all services, or you can elect to create a cognitive service account for an individual service.  In the following steps, you will create an account that spans cognitive services.
 
 1.  Open the [Azure Portal](https://portal.azure.com)
 
@@ -69,7 +57,7 @@ We'll primarily be using the [Computer Vision](https://www.microsoft.com/cogniti
 
 > **Note** You can create specific cognitive services resources or you can create a single resource that contains all the endpoints.
 
-1.  Type a name
+1.  Type a name of your own choosing
 
 1.  Select your subscripton and resource group
 
