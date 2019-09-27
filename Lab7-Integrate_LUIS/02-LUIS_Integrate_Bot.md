@@ -8,6 +8,8 @@ We will have to update our bot in order to use LUIS.  We can do this by modifyin
 
 > Prerequisites: This lab builds on [Lab 3](../Lab3-Basic_Filter_Bot/02-Basic_Filter_Bot.md). It is recommended that you do that lab in order to be able to implement logging as covered in this lab. If you have not, reading carefully through all the exercises and looking at some of the code or using it in your own applications may be sufficient, depending on your needs.
 
+>NOTE: If you intend to use the code in the Finished folder, you MUST replace the app specific information with your own app IDs and endpoints.
+
 ## Lab 7.1: Adding natural language understanding
 
 ### Adding LUIS to Startup.cs
