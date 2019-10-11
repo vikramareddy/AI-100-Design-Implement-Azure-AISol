@@ -64,6 +64,8 @@ Let's look at how we can use LUIS to add some natural language capabilities. LUI
 
 1.  Sign in using your Microsoft account. This should be the same account that you used to create the LUIS key in the previous section. You should be redirected to a list of your LUIS applications.  We will create a new LUIS app to support our bot.
 
+1. You will be asked to agree with service terms of use and select your county. On next step you need to chose recommended option and link your Azure account with LUIS. Finally confirm your settings and you will be forwarded to the LUIS App page.
+
 > **Note**: Notice that there is also an "Import App" next to the "New App" button on [the current page](https://www.luis.ai/applications).  After creating your LUIS application, you have the ability to export the entire app as JSON and check it into source control.  This is a recommended best practice, so you can version your LUIS models as you version your code.  An exported LUIS app may be re-imported using that "Import App" button.  If you fall behind during the lab and want to cheat, you can click the "Import App" button and import the [LUIS model](./code/LUIS/PictureBotLuisModel.json).
 
 1.  From the main page, click the **Create new app** button
@@ -169,7 +171,7 @@ Publishing creates an endpoint to call the LUIS model.  The URL will be displaye
 
 1.  Click **Application Infromation**, copy the **Application ID**.
 
-1.  Click **Keys and Endpoints**, copy the Key and the Endpoint URL.
+1.  Click **Azure Resources**, copy the Key and the Endpoint URL.
 
 **Note** We won't use the whole url, you will only need the **https://{region}.api.cognitive.microsoft.com** part
 
