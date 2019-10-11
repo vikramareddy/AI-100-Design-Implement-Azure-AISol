@@ -111,8 +111,7 @@ namespace ImageStorageLibrary
         public IEnumerable<T> FindAllDocuments<T>()
             where T : new()
         {
-            return null;
-           // return Client.GetItemsAsync("SELECT * FROM c", "MaxItemCount", "-1").Result;
+            return (IEnumerable<T>)Client.GetItemsAsync("SELECT * FROM c", new QueryRequestOptions() { MaxItemCount = -1 }).Result;
         }
 
         /// <summary>
@@ -124,7 +123,7 @@ namespace ImageStorageLibrary
         public IEnumerable<T> FindMatchingDocuments<T>(string query)
             where T : new()
         {
-            return (IEnumerable<T>)Client.GetItemsAsync(query, "MaxItemCount", "-1").Result;
+            return (IEnumerable<T>)Client.GetItemsAsync(query, new QueryRequestOptions() { MaxItemCount = -1 }).Result;
         }
 
         /// <summary>

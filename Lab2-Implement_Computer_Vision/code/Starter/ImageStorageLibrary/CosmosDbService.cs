@@ -12,7 +12,7 @@ namespace ImageStorageLibrary
 
     public interface ICosmosDbService<T> where T : class
     {
-        Task<IEnumerable<T>> GetItemsAsync(string query, QueryRequestOptions options);
+        Task<IEnumerable<T>> GetItemsAsync(string query, string paramter = null, string parametervalue = null);
         Task<T> GetItemAsync<T>(string id);
         Task AddItemAsync<T>(T item);
         Task UpdateItemAsync<T>(string id, T item);
@@ -56,9 +56,9 @@ namespace ImageStorageLibrary
 
         }
 
-        public async Task<IEnumerable<T>> GetItemsAsync(string queryString, QueryRequestOptions options = null)
+        public async Task<IEnumerable<T>> GetItemsAsync(string queryString, string paramter = null, string parametervalue = null)
         {
-            var query = this._container.GetItemQueryIterator<T>(queryString, null);
+            var query = this._container.GetItemQueryIterator<T>(new QueryDefinition(queryString).WithParameter(paramter, parametervalue));
             List<T> results = new List<T>();
             while (query.HasMoreResults)
             {
