@@ -12,8 +12,8 @@ namespace PictureBotDL
         // ************
         // Replace the following values with your Direct Line secret and the name of your bot resource ID.
         //*************
-        private static string directLineSecret = "ZR5aUIXpDT4.hAnQKzYk1owG3Ddbuk32KSW5CLV50oUdxavEJU7Y-UM";
-        private static string botId = "picturebotcjg1";
+        private static string directLineSecret = "YouDirectLineID";
+        private static string botId = "YourBotNAME";
 
         // This gives a name to the bot user.
         private static string fromUser = "PictureBotSampleUser";

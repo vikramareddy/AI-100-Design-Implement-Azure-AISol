@@ -1,15 +1,15 @@
 ﻿{
   "CognitiveServicesKeys": {
-    "Url" :  "VisionUrlHere",
-    "Vision": "VisionKeyHere"
+    "Url": "https://YOURLOCATION.api.cognitive.microsoft.com/vision/v1.0",
+    "Vision": "your service key"
   },
   "AzureStorage": {
-    "ConnectionString": "ConnectionStringHere",
+    "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=XXXXX;AccountKey=XXXXX;EndpointSuffix=core.windows.net",
     "BlobContainer": "images"
   },
   "CosmosDB": {
-    "EndpointURI": "CosmosURIHere",
-    "Key": "CosmosKeyHere",
+    "EndpointURI": "https://XXXXX.documents.azure.com:443/",
+    "Key": "your cosmos db key",
     "DatabaseName": "images",
     "CollectionName": "metadata"
   }
