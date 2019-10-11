@@ -1,0 +1,17 @@
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\Microsoft.Azure.Cosmos.ServiceInterop.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\Cosmos.CRTCompat.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\TestCLI.deps.json
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\TestCLI.runtimeconfig.json
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\TestCLI.runtimeconfig.dev.json
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\TestCLI.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\TestCLI.pdb
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\ImageStorageLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\ProcessingLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\ImageStorageLibrary.pdb
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\bin\Debug\netcoreapp2.2\ProcessingLibrary.pdb
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.csprojAssemblyReference.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.AssemblyInfoInputs.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.AssemblyInfo.cs
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.csproj.CopyComplete
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\TestCLI\obj\Debug\netcoreapp2.2\TestCLI.pdb

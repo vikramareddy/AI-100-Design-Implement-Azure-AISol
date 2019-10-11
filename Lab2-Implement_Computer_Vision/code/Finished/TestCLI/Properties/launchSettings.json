@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestCLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-process C:\\MOC\\AI100\\Forks\\AI-100-Design-Implement-Azure-AISol\\Lab2-Implement_Computer_Vision\\sample_images"
+    }
+  }
+}

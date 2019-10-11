@@ -1,0 +1,8 @@
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\bin\Debug\netcoreapp2.2\ProcessingLibrary.deps.json
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\bin\Debug\netcoreapp2.2\ProcessingLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\bin\Debug\netcoreapp2.2\ProcessingLibrary.pdb
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\obj\Debug\netcoreapp2.2\ProcessingLibrary.csprojAssemblyReference.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\obj\Debug\netcoreapp2.2\ProcessingLibrary.AssemblyInfoInputs.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\obj\Debug\netcoreapp2.2\ProcessingLibrary.AssemblyInfo.cs
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\obj\Debug\netcoreapp2.2\ProcessingLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ProcessingLibrary\obj\Debug\netcoreapp2.2\ProcessingLibrary.pdb

@@ -1,0 +1,10 @@
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\bin\Debug\netcoreapp2.2\Microsoft.Azure.Cosmos.ServiceInterop.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\bin\Debug\netcoreapp2.2\Cosmos.CRTCompat.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\bin\Debug\netcoreapp2.2\ImageStorageLibrary.deps.json
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\bin\Debug\netcoreapp2.2\ImageStorageLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\bin\Debug\netcoreapp2.2\ImageStorageLibrary.pdb
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\obj\Debug\netcoreapp2.2\ImageStorageLibrary.csprojAssemblyReference.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\obj\Debug\netcoreapp2.2\ImageStorageLibrary.AssemblyInfoInputs.cache
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\obj\Debug\netcoreapp2.2\ImageStorageLibrary.AssemblyInfo.cs
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\obj\Debug\netcoreapp2.2\ImageStorageLibrary.dll
+C:\MOC\AI100\Forks\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\code\Finished\ImageStorageLibrary\obj\Debug\netcoreapp2.2\ImageStorageLibrary.pdb
