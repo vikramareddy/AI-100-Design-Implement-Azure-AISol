@@ -60,7 +60,7 @@ namespace PictureBotDL
                     if (input.Length > 0)
                     {
                         // Create a message activity with the text the user entered.
-                        Activity userMessage = new Activity
+                        Microsoft.Bot.Connector.DirectLine.Activity userMessage = new Microsoft.Bot.Connector.DirectLine.Activity
                         {
                             From = new ChannelAccount(fromUser),
                             Text = input,
@@ -98,7 +98,7 @@ namespace PictureBotDL
                                  select x;
 
                 // Analyze each activity in the activity set.
-                foreach (Activity activity in activities)
+                foreach (Microsoft.Bot.Connector.DirectLine.Activity activity in activities)
                 {
                     // Display the text of the activity.
                     Console.WriteLine(activity.Text);

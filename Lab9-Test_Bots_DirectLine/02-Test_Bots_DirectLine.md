@@ -76,7 +76,7 @@ We'll create a console application to help us understand how Direct Line can all
 
 1.  Right-click on the solution in Solution Explorer, then select **Add > New Project**. 
 
-1.  Search for **Console App (.NET Framework)**, select it and click **Next**
+1.  Search for **Console App (.NET Core)**, select it and click **Next**
 
 1.  For the name, type **PictureBotDL**
 
@@ -86,7 +86,7 @@ We'll create a console application to help us understand how Direct Line can all
 
 1.  Right-click on the PictureBotDL project and select **Manage NuGet Packages**. 
 
-1.  Within the **Browse** tab (and with "include prerelease" checked), search and install/update the following:
+1.  Within the **Browse** tab , search and install/update the following:
 
 +   Microsoft.Bot.Connector.DirectLine
 
@@ -101,6 +101,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Bot.Connector.DirectLine;
 using Newtonsoft.Json;
+using Activity = Microsoft.Bot.Connector.DirectLine.Activity;
 
 namespace PictureBotDL
 {
