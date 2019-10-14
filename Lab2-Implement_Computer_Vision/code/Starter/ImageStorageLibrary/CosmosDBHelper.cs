@@ -1,23 +1,51 @@
-﻿using System;
+﻿using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Fluent;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
 
 namespace ImageStorageLibrary
 {
     /// <summary>
     /// Helper for accessing CosmosDB. Set the endpoint URI and Access Key (find these in the portal), your DB and Collection names, and then build your instance.
     /// </summary>
-    public class CosmosDBHelper
+    public class CosmosDBHelper<T> where T : class, new()
     {
+
+        private static CosmosDBHelper<T> singletone { get; set; }
+
+        private CosmosDBHelper()
+        {
+        }
+
+        public static CosmosDBHelper<T> GetInstance
+        {
+            get
+            {
+                if (singletone == null)
+                {
+                    if (String.IsNullOrEmpty(EndpointUri)) throw new ArgumentException("You must init 'EndpointUri' first");
+                    if (String.IsNullOrEmpty(AccessKey)) throw new ArgumentException("You must init 'AccessKey' first");
+                    if (String.IsNullOrEmpty(DatabaseName)) throw new ArgumentException("You must init 'DatabaseName' first");
+                    if (String.IsNullOrEmpty(CollectionName)) throw new ArgumentException("You must init 'CollectionName' first");
+
+                    singletone = new CosmosDBHelper<T>();
+                    singletone.Client = BuildAsync().Result;
+                }
+
+                return singletone;
+            }
+        }
+
         public static string EndpointUri { get; set; }
         public static string AccessKey { get; set; }
         public static string DatabaseName { get; set; }
         public static string CollectionName { get; set; }
 
-        public static async Task<CosmosDBHelper> BuildAsync()
+        private static async Task<CosmosDbService<T>> BuildAsync()
         {
             if (string.IsNullOrWhiteSpace(EndpointUri))
                 throw new ArgumentNullException("EndpointUri");
@@ -28,21 +56,24 @@ namespace ImageStorageLibrary
             if (string.IsNullOrWhiteSpace(CollectionName))
                 throw new ArgumentNullException("CollectionName");
 
-            var client = new DocumentClient(new Uri(EndpointUri), AccessKey);
-            var db = (await client.CreateDatabaseIfNotExistsAsync(new Database() {Id = DatabaseName})).Resource;
-            var coll = (await client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri(db.Id),
-                new DocumentCollection() {Id = CollectionName})).Resource;
+            CosmosClientBuilder clientBuilder = new CosmosClientBuilder(EndpointUri, AccessKey);
+            CosmosClient client = clientBuilder
+                                .WithConnectionModeDirect()
+                                .Build();
 
-            return new CosmosDBHelper() {Client = client, Database = db, Collection = coll};
+
+            CosmosDbService<T> cosmosDbService = new CosmosDbService<T>(client, DatabaseName, CollectionName);
+            DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(DatabaseName);
+            await database.Database.CreateContainerIfNotExistsAsync(CollectionName, "/id");
+
+            return cosmosDbService;
         }
 
-        private CosmosDBHelper()
-        {
-        }
 
-        private DocumentClient Client { get; set; }
-        private Database Database { get; set; }
-        private DocumentCollection Collection { get; set; }
+
+        private CosmosDbService<T> Client { get; set; }
+        //private Database Database { get; set; }
+        //private DocumentCollection Collection { get; set; }
 
         /// <summary>
         /// Create a document with the given ID in the DB/Collection, unless it already exists. If it exists, return the existing version.
@@ -54,16 +85,8 @@ namespace ImageStorageLibrary
         public async Task<Tuple<bool, T>> CreateDocumentIfNotExistsAsync<T>(T document, string id)
             where T : new()
         {
-            try
-            {
-                return
-                Tuple.Create(false, (await this.Client.ReadDocumentAsync<T>(DocumentUri(id))).Document);
-            }
-            catch (DocumentClientException)
-            {
-                await this.Client.CreateDocumentAsync(CollectionUri(), document);
-                return Tuple.Create(true, document);
-            }
+                await this.Client.AddItemAsync(document);
+                return Tuple.Create(false, document);           
         }
 
         /// <summary>
@@ -76,7 +99,7 @@ namespace ImageStorageLibrary
         public async Task<T> UpdateDocumentAsync<T>(T update, string id)
             where T : new()
         {
-            await this.Client.ReplaceDocumentAsync(DocumentUri(id), update);
+            await this.Client.UpdateItemAsync(id, update);
             return update;
         }
 
@@ -85,12 +108,11 @@ namespace ImageStorageLibrary
         /// </summary>
         /// <typeparam name="T">Type of documents to find.</typeparam>
         /// <returns>Queryable capable of returning all documents.</returns>
-        public IQueryable<T> FindAllDocuments<T>()
+        public IEnumerable<T> FindAllDocuments<T>()
             where T : new()
         {
-            var queryOptions = new FeedOptions() {MaxItemCount = -1};
-            return this.Client.CreateDocumentQuery<T>(
-                CollectionUri(), queryOptions);
+            return null;
+           // return Client.GetItemsAsync("SELECT * FROM c", "MaxItemCount", "-1").Result;
         }
 
         /// <summary>
@@ -99,12 +121,10 @@ namespace ImageStorageLibrary
         /// <typeparam name="T">Type of documents to find.</typeparam>
         /// <param name="query">Query against the document store.</param>
         /// <returns>Queryable capable of returning all matching documents.</returns>
-        public IQueryable<T> FindMatchingDocuments<T>(string query)
+        public IEnumerable<T> FindMatchingDocuments<T>(string query)
             where T : new()
         {
-            var queryOptions = new FeedOptions() { MaxItemCount = -1 };
-            return this.Client.CreateDocumentQuery<T>(
-                CollectionUri(), query, queryOptions);
+            return (IEnumerable<T>)Client.GetItemsAsync(query, "MaxItemCount", "-1").Result;
         }
 
         /// <summary>
@@ -117,24 +137,16 @@ namespace ImageStorageLibrary
             where T : new()
         {
             try
-            {
-                return (await this.Client.ReadDocumentAsync<T>(DocumentUri(id))).Document;
+            {                
+                return await Client.GetItemAsync<T>(id);
             }
-            catch (DocumentClientException e)
+            catch (CosmosException e)
             {
                 if (e.StatusCode == HttpStatusCode.NotFound) return default(T);
                 throw;
             }
         }
 
-        private Uri CollectionUri()
-        {
-            return UriFactory.CreateDocumentCollectionUri(this.Database.Id, this.Collection.Id);
-        }
 
-        private Uri DocumentUri(string documentId)
-        {
-            return UriFactory.CreateDocumentUri(this.Database.Id, this.Collection.Id, documentId);
-        }
     }
 }

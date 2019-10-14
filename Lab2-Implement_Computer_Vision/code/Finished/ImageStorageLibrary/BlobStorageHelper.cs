@@ -1,5 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+﻿using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -70,7 +70,7 @@ namespace ImageStorageLibrary
         /// <param name="prefix">Blob prefix (i.e. "subdirectory")</param>
         /// <returns>List of URIs for blobs in the container matching the given prefix.</returns>
         private async Task<IList<Uri>> GetImageURIsAsync(string prefix)
-        { 
+        {
             BlobContinuationToken tok = null;
             List<Uri> blobUris = new List<Uri>();
             do
@@ -81,7 +81,8 @@ namespace ImageStorageLibrary
                     if (result is CloudBlobDirectory)
                     {
                         blobUris.AddRange(await GetImageURIsAsync(((CloudBlobDirectory)result).Prefix));
-                    } else
+                    }
+                    else
                     {
                         blobUris.Add(((CloudBlob)result).Uri);
                     }

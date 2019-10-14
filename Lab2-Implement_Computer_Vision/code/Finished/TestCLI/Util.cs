@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using ProcessingLibrary;
 using Newtonsoft.Json;
+using SkiaSharp;
 
 namespace TestCLI
 {
@@ -68,46 +69,49 @@ namespace TestCLI
         /// We resize downward to avoid too much data over the wire.
         /// </summary>
         /// <param name="imageFile">Image file to resize.</param>
-        /// <param name="maxDim">Maximum height/width - will retain aspect ratio.</param>
+        /// <param name="size">Maximum height/width - will retain aspect ratio.</param>
         /// <returns>Revised width/height and resized image filename.</returns>
-        public static Tuple<Tuple<double, double>, string> ResizeIfRequired(string imageFile, int maxDim)
+        public static Tuple<Tuple<double, double>, string> ResizeIfRequired(string imageFile, int size)
         {
-            using (var origImg = Image.FromFile(imageFile))
+            using (var input = File.OpenRead(imageFile))
+            using (var inputStream = new SKManagedStream(input))
             {
-                var width = origImg.Width;
-                var height = origImg.Height;
-                if (width > maxDim || height > maxDim)
+                using (var original = SKBitmap.Decode(inputStream))
                 {
-                    if (width >= height)
+                    int width, height;
+                    if (original.Width > original.Height)
                     {
-                        width = maxDim;
-                        height = (int)((float)(maxDim * origImg.Height) / ((float)origImg.Width));
+                        width = size;
+                        height = original.Height * size / original.Width;
                     }
                     else
                     {
-                        height = maxDim;
-                        width = (int)((float)(maxDim * origImg.Width) / ((float)origImg.Height));
+                        width = original.Width * size / original.Height;
+                        height = size;
                     }
 
-                    var resizedImageFile = Path.GetTempFileName();
-                    using (var resultingImg = (Image)(new Bitmap(origImg, new Size(width, height))))
-                        resultingImg.Save(resizedImageFile, ImageFormat.Png);
+                    using (var resized = original.Resize(new SKImageInfo(width, height), SKBitmapResizeMethod.Lanczos3))
+                    {
+                        // No need to resize
+                        if (resized == null)
+                            return Tuple.Create((Tuple<double, double>)null, imageFile);
 
-                    return Tuple.Create(Tuple.Create((double)origImg.Width / width, (double)origImg.Height / height), resizedImageFile);
-                }
-                else
-                {
-                    // No need to resize
-                    return Tuple.Create((Tuple<double,double>)null, imageFile);
+                        using (var image = SKImage.FromBitmap(resized))
+                        {
+                            var resizedImageFile = Path.GetTempFileName();
+                            using (var output = File.OpenWrite(resizedImageFile))
+                            {
+                                image.Encode(SKEncodedImageFormat.Png, 75)
+                                    .SaveTo(output);
+                            }
+                            return Tuple.Create(Tuple.Create((double)original.Width / width, (double)original.Height / height), resizedImageFile);
+
+                        }
+                    }
+
                 }
             }
-        }
-
-        /// <summary>
-        /// If we resize the image, we should resize the face rectangles in our insights appropriately.
-        /// </summary>
-        /// <param name="insights"></param>
-        /// <param name="resizeTransform"></param>
+        }   
 
     }
 }

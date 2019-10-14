@@ -32,13 +32,12 @@ There are some directories in the [main](./) course folder:
 
 - **code**: In here, there are several directories that we will use:
 
-    -   **Starting-ImageProcessing**: A starter project, which you should use if you are going through the labs
+    -   **Starter**: A starter project, which you should use if you are going through the labs
 
-    -   **Finished-ImageProcessing**: A finished project if you get stuck or run out of time. 
+    -   **Finished**: A finished project if you get stuck or run out of time. 
     
-Each folder contains a solution (.sln) that has several different projects for the lab, let's take a high level look at them:
+Each folder contains a solution (.sln) that has several different projects for the lab, let's take a high level look at them.
 
-    -   **ProcessingLibrary**: This is a Portable Class Library (PCL) containing helper classes for accessing the various Cognitive Services related to Vision, and some "Insights" classes for encapsulating the results..
 
 ## Lab 2.3: Image Processing
 
@@ -60,9 +59,9 @@ Let's talk about how we're going to call Cognitive Services in our application.
 
 ### **Image Processing Library** ###
 
-1.  Open the **code/Starter/Imageprocessing.sln** solution
+1.  Open the **code/Starter/ImageProcessing.sln** solution
 
-Within your solution, under `code/Starter`, you'll find the `Processing Library`. This is a [Portable Class Library (PCL)](https://docs.microsoft.com/en-us/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library), which helps in building cross-platform apps and libraries quickly and easily. It serves as a wrapper around several services. This specific PCL contains some helper classes (in the ServiceHelpers folder) for accessing the Computer Vision API and an "ImageInsights" class to encapsulate the results. Later, we'll create an image processor class that will be responsible for wrapping an image and exposing several methods and properties that act as a bridge to the Cognitive Services.
+Within your solution, under `code/Starter`, you'll find the `Processing Library`. It serves as a wrapper around several services. This specific PCL contains some helper classes (in the ServiceHelpers folder) for accessing the Computer Vision API and an "ImageInsights" class to encapsulate the results. Later, we'll create an image processor class that will be responsible for wrapping an image and exposing several methods and properties that act as a bridge to the Cognitive Services.
 
 ![Processing Library PCL](../images/ProcessingLibrary.png)
 
@@ -180,9 +179,9 @@ We will implement the main processing and storage code as a command-line/console
 
 1.  If you have not already done so, compile the project
 
-1.  Open a comman prompt and navigate to the build directory for the **TestCLI** project.  It should something like **{GitHubDir}\Lab2-Implement_Computer_Vision\code\Starter\TestCLI\bin\Debug**.
+1.  Open a comman prompt and navigate to the build directory for the **TestCLI** project.  It should something like **{GitHubDir}\Lab2-Implement_Computer_Vision\code\Starter\TestCLI**.
 
-1.  Run the **TestCLI.exe**
+1.  Run command **dotnet run**
 
 ```
 Usage:  [options]
@@ -198,7 +197,7 @@ Options:
 By default, it will load your settings from `settings.json` (it builds it into the `.exe`), but you can provide your own using the `-settings` flag. To load images (and their metadata from Cognitive Services) into your cloud storage, you can just tell _TestCLI_ to `-process` your image directory as follows:
 
 ```
-TestCLI.exe -process <%GitHubDir%>\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\sample_images
+dotnet run -- -process <%GitHubDir%>\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\sample_images
 ```
 
 > **Note** Replace the <%GitHubDir%> value with the folder where you cloned the repository.
@@ -206,7 +205,7 @@ TestCLI.exe -process <%GitHubDir%>\AI-100-Design-Implement-Azure-AISol\Lab2-Impl
 Once it's done processing, you can query against your Cosmos DB directly using _TestCLI_ as follows:
 
 ```
-TestCLI.exe -query "select * from images"
+dotnet run -- -query "select * from images"
 ```
 
 Take some time to look through the sample images (you can find them in /sample_images) and compare the images to the results in your application.

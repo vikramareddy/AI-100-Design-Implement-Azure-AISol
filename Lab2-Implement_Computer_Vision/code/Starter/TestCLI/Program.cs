@@ -10,6 +10,7 @@ using Microsoft.Extensions.CommandLineUtils;
 using Newtonsoft.Json;
 using ServiceHelpers;
 
+
 namespace TestCLI
 {
     class Program
@@ -43,7 +44,7 @@ namespace TestCLI
                     RunQuery(q.Value());
                     return 0;
                 }
-                else 
+                else
                 {
                     app.ShowHelp("Must provide a directory to process");
                     return -1;
@@ -54,7 +55,7 @@ namespace TestCLI
         }
 
         private static BlobStorageHelper blobStorage;
-        private static CosmosDBHelper cosmosDb;
+        private static CosmosDBHelper<ImageMetadata> cosmosDb;
 
         private static async Task InitializeAsync(string settingsFile = null)
         {
@@ -73,11 +74,12 @@ namespace TestCLI
                 BlobStorageHelper.ContainerName = settings.AzureStorage.BlobContainer;
                 blobStorage = await BlobStorageHelper.BuildAsync();
 
-                CosmosDBHelper.AccessKey = settings.CosmosDB.Key;
-                CosmosDBHelper.EndpointUri = settings.CosmosDB.EndpointURI;
-                CosmosDBHelper.DatabaseName = settings.CosmosDB.DatabaseName;
-                CosmosDBHelper.CollectionName = settings.CosmosDB.CollectionName;
-                cosmosDb = await CosmosDBHelper.BuildAsync();
+
+                CosmosDBHelper<ImageMetadata>.AccessKey = settings.CosmosDB.Key;
+                CosmosDBHelper<ImageMetadata>.EndpointUri = settings.CosmosDB.EndpointURI;
+                CosmosDBHelper<ImageMetadata>.DatabaseName = settings.CosmosDB.DatabaseName;
+                CosmosDBHelper<ImageMetadata>.CollectionName = settings.CosmosDB.CollectionName;
+                cosmosDb = CosmosDBHelper<ImageMetadata>.GetInstance;
             }
         }
 
@@ -85,14 +87,14 @@ namespace TestCLI
         {
             Console.WriteLine($"Processing Directory {dir}");
             var imageExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-            {
-                ".png",
-                ".jpg",
-                ".bmp",
-                ".jpeg",
-                ".gif"
-            };
-            foreach (var file in 
+                    {
+                        ".png",
+                        ".jpg",
+                        ".bmp",
+                        ".jpeg",
+                        ".gif"
+                    };
+            foreach (var file in
                 from file in Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories)
                 where imageExtensions.Contains(Path.GetExtension(file))
                 select file)
