@@ -71,11 +71,13 @@ IStorage dataStore = new Microsoft.Bot.Builder.Azure.AzureBlobStorage(blobConnec
 
 1.  Switch to the Azure Portal, navigate to your blob storage account
 
-1.  Click **Blobs**, check if a **chatlog** container exists, if it does not click **+Container**:
+1.  From the **Overview** tab, click **Containers**
+
+1.  Check if a **chatlog** container exists, if it does not click **+Container**:
 
     -   For the name, type **chatlog**, click **OK**
 
-1.  If you haven't already done so, click **Keys** and record your connection string
+1.  If you haven't already done so, click **Access keys** and record your connection string
 
 1.  Open the **appsettings.json** and add your blob connection string details:
 
@@ -92,9 +94,9 @@ IStorage dataStore = new Microsoft.Bot.Builder.Azure.AzureBlobStorage(blobConnec
 
 1.  Switch to the Azure Portal, navigate to your blob storage account
 
-1.  Click **Blobs**, then open the **ChatLog** container
+1.  Click **Containers**, then open the **ChatLog** container
 
-1.  Open the chat log file.  What do you see in the files? What don't you see that you were expecting/hoping to see?
+1.  Select the chat log file, it should start with **emulator...**, then select **Edit blob**.  What do you see in the files? What don't you see that you were expecting/hoping to see?
 
 You should see something similar to this:
 
