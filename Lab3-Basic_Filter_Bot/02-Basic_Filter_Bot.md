@@ -10,7 +10,7 @@ Be mindful of the following AI Ethics principles when designing and implementing
 1. *Transparency*: Guard against bias and destruction of human dignity
 1. *Ethical Application*: AI must assist humanity and be designed for intelligent privacy
 
-We encourage you to [Read more](https://ai-ethics.azurewebsites.net/) about the Ethical considerations when building intelligent apps.
+We encourage you to [read more](https://ai-ethics.azurewebsites.net/) about the Ethical considerations when building intelligent apps.
 
 ## Pre-requisities
 
@@ -32,11 +32,17 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1.  For pricing tier, select **F0**. 
 
-1.  Select a Bot template of **SDK v4** for **Echo Bot** in **C#**, later we will update it to our our PictureBot.
+1.  Select the Bot template area
+
+1.  Select **C#**, then select **Echo Bot**, later we will update it to our our PictureBot.
 
 1.  Click **OK**, make sure that **Echo Bot** is displayed.
 
-1.  Configure a new App service plan (put it in the same location as your bot). You can choose to turn Application Insights on or off. **Do not** change or click on "Auto create App ID and password", we will get to that later. 
+1.  Configure a new App service plan (put it in the same location as your bot)
+
+1.  You can choose to turn Application Insights on or off. 
+
+1.  **Do not** change or click on **Auto create App ID and password**, we will get to that later. 
 
 1.  Click **Create**
 
@@ -47,6 +53,8 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 1.  Under **Bot Management**, click **Settings**
 
 1.  Click the **Manage** link for the **Microsoft App ID**
+
+![Click the Manage link](../images/ManageBot.png)
 
 1.  Click **New client secret**
 
@@ -60,15 +68,23 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1.  Click **Overview**, record the application id into notepad or similar for later us in the lab(s).
 
-1.  Navigate back to the **web app bot** resource, select the **Test in Web Chat** tab once it's deployed, and see what it is capable of doing.  As you will see, it only echos back your message.
+1.  Navigate back to the **web app bot** resource, select the **Test in Web Chat** tab
+
+1.  Once it starts, explore what it is capable of doing.  As you will see, it only echos back your message.
+
+![The basic echo bot response](../images/EchoBot.png)
 
 ## Lab 3.1: Creating a simple bot and running it
 
-1.  Open Visual Studio 2019 or later
+1.  Open **Visual Studio 2019** or later
 
 1.  Click **Create new project**, search for **bot**.
 
-1.  Scroll down until you see **Echo Bot (Bot Framework v4)**, click **Next**
+1.  Scroll down until you see **Echo Bot (Bot Framework v4)**
+
+![Select the Echo Bot project template](../images/NewBotProject.png)
+
+1.  Click **Next**
 
 > **Note** If you do not see the Echo Bot template, you need to install the Visual Studio addins from the pre-req steps.
 
@@ -82,8 +98,8 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 ```json
 {
-    "MicrosoftAppId": "",
-    "MicrosoftAppPassword": ""
+    "MicrosoftAppId": "YOURAPPID",
+    "MicrosoftAppPassword": "YOURAPPSECRET"
 }
 ```
 
@@ -91,7 +107,7 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1.  Right-click the **Bots/Echobot.cs** file, then select **Rename**, rename the class file to **PictureBot.cs**
 
-1.  Rename the class and then change all references to the class to **PictureBot**.  You will know if you missed one when you go to build the project.
+1.  Rename the class and then change all references to the class to **PictureBot**.  You will know if you missed one when you attempt to build the project.
 
 1.  Right-click the project, select **Manage Nuget Packagaes**
 
@@ -110,7 +126,7 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 So now that we've updated our base shell to support the naming and NuGet packages we'll use throughout the rest of the labs, we're ready to start adding some custom code. First, we'll just create a simple "Hello world" bot that helps you get warmed up to building bots with the V4 SDK.
 
-An important concept is the "turn", used to describe a message to a user and a response from the bot.
+An important concept is the `turn`, used to describe a message to a user and a response from the bot.
 For example, if I say "Hello bot" and the bot responds "Hi, how are you?" that is **one** turn. Check in the image below how a **turn** goes through the multiple layers of a bot application.
 
 ![Bots Concepts](../images/bots-concepts-middleware.png)
@@ -127,7 +143,7 @@ A few things to **Note**
 
 * Note the localhost port number for the web page. This should (and must) match the endpoint in your Emulator.
 
->Get stuck or broken? You can find the solution for the lab up until this point under [resources/code/Finished/PictureBot-Part0](./code/Finished/PictureBot-Part0). The readme file within the solution (once you open it) will tell you what keys you need to add in order to run the solution.
+>Get stuck or broken? You can find the solution for the lab up until this point under [{GitHubPath}/code/Finished/PictureBot-Part0](./code/Finished/PictureBot-Part0). The readme file within the solution (once you open it) will tell you what keys you need to add in order to run the solution.
 
 #### Using the Bot Framework Emulator
 
@@ -149,7 +165,7 @@ To interact with your bot:
 
 * You should now be able to converse with the bot.
 
-* Type **hello**. The bot will respond with echoing your message.
+* Type **hello**. The bot will respond with echoing your message similar to the Azure bot we created earlier.
 
 > **Note** You can select "Restart conversation" to clear the conversation history.
 
@@ -189,9 +205,9 @@ using Microsoft.PictureBot;
 using Microsoft.Bot.Builder.AI.Luis;
 using Microsoft.Bot.Builder.Dialogs;
 ```
-We won't use the above just yet, but can you guess when we might?
+We won't use all of the above namespaces just yet, but can you guess when we might?
 
-1.  Focus your attention on the `ConfigureServices` method which is used to add services to the bot. Review the contents carefully, noting what is built in for you.
+1.  In the **Startup.cs** class, focus your attention on the `ConfigureServices` method which is used to add services to the bot. Review the contents carefully, noting what is built in for you.
 
 > A few other notes for a deeper understanding:
 >
@@ -223,7 +239,7 @@ private ILoggerFactory _loggerFactory;
 private bool _isProduction = false;
 ```
 
-2.  Replace the code on line 42 
+2.  Replace the code in the **ConfigureServices** method: 
 
 ```csharp
 services.AddTransient<IBot, PictureBot.Bots.PictureBot>();
@@ -728,6 +744,8 @@ middleware.Add(new RegExpRecognizerMiddleware()
 
 ```
 
+> We're really just skimming the surface of using regular expressions. If you're interested, you can [learn more here](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference).
+
 1.  You may notice that the `options.State` has been deprecated.  Let's migrate to the newest method:
 
 1.  Remove the following code:
@@ -771,8 +789,6 @@ if (conversationState == null)
     throw new InvalidOperationException("ConversationState must be defined and added before adding conversation-scoped state accessors.");
 }
 ```
-
-> We're really just skimming the surface of using regular expressions. If you're interested, you can [learn more here](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Without adding LUIS, our bot is really only going to pick up on a few variations, but it should capture a good bit of messages, if the users are using the bot for searching and sharing and ordering pictures.
 
