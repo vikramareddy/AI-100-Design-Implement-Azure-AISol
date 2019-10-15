@@ -31,17 +31,16 @@ In this lab we will explore the QnA Maker for creating bots that connect to a pr
 -   Application Insights
 -   Search Service
 -   Cognitive Service instance of type QnAMaker
--   Web App
 
 ## Lab 5.2: Create a KnowledgeBase
 
 1.  Open the [QnA Maker site](https://qnamaker.ai)
 
-1.  Login using the Azure credentials for your new QnA Maker resource
+1.  In the top right, click **Sign in**.  Login using the Azure credentials for your new QnA Maker resource
 
-1.  Click **Create a knowledge base**
+1.  In the top navigation area, click **Create a knowledge base**
 
-1.  Skip step 1 as you have already created the resource
+1.  Skip **STEP 1** as you have already created the resource
 
 1.  Select your Azure AD and Subscription tied to your QnA Maker resource, then select your newly created QnA Maker resource
 
@@ -65,6 +64,8 @@ In this lab we will explore the QnA Maker for creating bots that connect to a pr
 
 1.  On the publish page, click **Publish**.  Once the service is published, click the **Create Bot** button on the success page
 
+1.  If prompted, login as the account tied to your lab resource group.
+
 1.  On the bot service creation page, fix any naming errors, then click **Create**.
 
 > **Note**  Recent change in Azure requires dashes ("-") be removed from some resource names
@@ -84,11 +85,11 @@ In this lab we will explore the QnA Maker for creating bots that connect to a pr
 
 ## Lab 5.4: Download the Bot Source code
 
-1.  Click the **Build** tab
+1.  Under **Bot management**, select the **Build** tab
 
 1.  Click **Download Bot source code**, when prompted click **Yes**.  
 
-1.  Azure will build your source code, when complete, click **Download Bot source code**
+1.  Azure will build your source code, when complete, click **Download Bot source code**, if prompted, select **Yes**
 
 1.  Extract the zip file to your local computer
 
