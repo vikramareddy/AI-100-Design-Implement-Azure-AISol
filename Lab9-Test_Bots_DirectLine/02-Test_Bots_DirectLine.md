@@ -1,6 +1,5 @@
 # Lab 9: Test Bots in DirectLine
 
-
 ##  Introduction
 
 Communication directly with your bot may be required in some situations. For example, you may want to perform functional tests with a hosted bot. Communication between your bot and your own client application can be performed using the [Direct Line API](https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts).
@@ -44,7 +43,7 @@ Ensure that you update the **appsettings.json** file with all the necessary valu
 
 1.  Right-click the project and select **Publish**
 
-1.  In the publish dialog, select **Select Existing**, this click **Publish**
+1.  In the publish dialog, select **Select Existing**, then click **Publish**
 
 1.  If prompted, login using the account you have used through the labs
 
@@ -54,7 +53,7 @@ Ensure that you update the **appsettings.json** file with all the necessary valu
 
 1.  Click **OK**
 
-> **Note** You may need to publish a second time, only this time changing the publish to remove existing files.  You may get the echo bot service otherwise when you test below.
+> **Note** Depending on the path you took to get to this lab, you may need to publish a second time otherwise you may get the echo bot service otherwise when you test below.  Republish the bot, only this time change the publish settings to remove existing files.  
 
 ## Lab 9.2: Setting up the Direct Line channel
 
@@ -72,7 +71,7 @@ We'll create a console application to help us understand how Direct Line can all
 
 > **Note** The instructions and code here have been modified from the [best practices in the documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-direct-line?view=azure-bot-service-4.0&tabs=cscreatebot%2Ccsclientapp%2Ccsrunclient).
 
-1.  Open your published **PictureBot** solution in Visual Studio. 
+1.  If not already open, open your **PictureBot** solution in Visual Studio. 
 
 1.  Right-click on the solution in Solution Explorer, then select **Add > New Project**. 
 
@@ -89,6 +88,7 @@ We'll create a console application to help us understand how Direct Line can all
 1.  Within the **Browse** tab , search and install/update the following:
 
 +   Microsoft.Bot.Connector.DirectLine
++   Microsoft.Rest.ClientRuntime
 
 1.  Open **Program.cs**
 
@@ -265,7 +265,7 @@ Spend some time reviewing this sample code. It's a good exercise to make sure yo
 
 **Step 4** - Run the app
 
-1.  Right-click on the PictureBotDL project and select **Set as Startup Project**. 
+1.  Right-click on the **PictureBotDL** project and select **Set as Startup Project**. 
 
 1.  Next, press **F5** to run the app 
 
