@@ -70,6 +70,20 @@ namespace ImageStorageLibrary
             return results;
         }
 
+        public async Task<IEnumerable<T>> GetItemsAsync(string queryString)
+        {
+            var query = this._container.GetItemQueryIterator<T>(new QueryDefinition(queryString));
+            List<T> results = new List<T>();
+            while (query.HasMoreResults)
+            {
+                var response = await query.ReadNextAsync();
+
+                results.AddRange(response.ToList());
+            }
+
+            return results;
+        }
+
         public async Task UpdateItemAsync<T>(string id, T item)
         {
             await this._container.UpsertItemAsync<T>(item, new PartitionKey(id));

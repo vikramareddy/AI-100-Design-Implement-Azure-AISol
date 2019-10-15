@@ -124,7 +124,7 @@ namespace ImageStorageLibrary
         public IEnumerable<T> FindMatchingDocuments<T>(string query)
             where T : new()
         {
-            return (IEnumerable<T>)Client.GetItemsAsync(query, "MaxItemCount", "-1").Result;
+            return (IEnumerable<T>)Client.GetItemsAsync(query).Result;
         }
 
         /// <summary>

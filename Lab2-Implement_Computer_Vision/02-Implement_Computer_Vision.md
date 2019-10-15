@@ -26,7 +26,7 @@ In the continuation of this lab throughout the course, we'll show you how to que
 
 ## Lab 2.2: Resources
 
-There are some directories in the [main](./) course folder:
+There are some directories in the [main](./Lab2-Implement_Computer_Vision) github repo folder:
 
 - **sample_images**: Some sample images to use in testing your implementation of Cognitive Services.
 
@@ -37,7 +37,6 @@ There are some directories in the [main](./) course folder:
     -   **Finished**: A finished project if you get stuck or run out of time. 
     
 Each folder contains a solution (.sln) that has several different projects for the lab, let's take a high level look at them.
-
 
 ## Lab 2.3: Image Processing
 
@@ -105,7 +104,7 @@ public static async Task<ImageInsights> ProcessImageAsync(Func<Task<Stream>> ima
 {
 ```
 
-1.  If Visual Studio doesnt add it for you automaticaly, add a curly brace to the end of the file to close the method
+1.  If Visual Studio does not add it for you automaticaly, add a curly brace to the end of the file to close the method
 
 In the above code, we use `Func<Task<Stream>>` because we want to make sure we can process the image multiple times (once for each service that needs it), so we have a Func that can hand us back a way to get the stream. Since getting a stream is usually an async operation, rather than the Func handing back the stream itself, it hands back a task that allows us to do so in an async fashion.
 
@@ -160,7 +159,7 @@ Azure Cosmos DB is Microsoft's resilient NoSQL PaaS solution and is incredibly u
 
 Cosmos DB is not a focus of this lab, but if you're interested in what's going on - here are some highlights from the code we will be using:
 
-1.  Navigate to the `CosmosDBHelper.cs` class in the `ImageStorageLibrary`. Review the code and the comments. Many of the implementations used can be found in the [Getting Started guide](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-get-started).
+1.  Navigate to the `CosmosDBHelper.cs` class in the `ImageStorageLibrary` project. Review the code and the comments. Many of the implementations used can be found in the [Getting Started guide](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-get-started).
 
 1.  Go to `TestCLI`'s `Util.cs` and review  the `ImageMetadata` class (code and comments). This is where we turn the `ImageInsights` we retrieve from Cognitive Services into appropriate Metadata to be stored into Cosmos DB.
 - Finally, look in `Program.cs` in `TestCLI` and at  `ProcessDirectoryAsync`. First, we check if the image and metadata have already been uploaded - we can use `CosmosDBHelper` to find the document by ID and to return `null` if the document doesn't exist. Next, if we've set `forceUpdate` or the image hasn't been processed before, we'll call the Cognitive Services using `ImageProcessor` from the `ProcessingLibrary` and retrieve the `ImageInsights`, which we add to our current `ImageMetadata`.  
@@ -171,7 +170,7 @@ Once all of that is complete, we can store our image - first the actual image in
 
 We will implement the main processing and storage code as a command-line/console application because this allows you to concentrate on the processing code without having to worry about event loops, forms, or any other UX related distractions. Feel free to add your own UX later.
 
-1.  Open the **settings.json** file
+1.  In the **TestCLI** project, open the **settings.json** file
 
 1.  Add your specific environment settings from [Lab1-Technical_Requirements.md](../Lab1-Technical_Requirements/02-Technical_Requirements.md)
 
@@ -179,7 +178,9 @@ We will implement the main processing and storage code as a command-line/console
 
 1.  If you have not already done so, compile the project
 
-1.  Open a comman prompt and navigate to the build directory for the **TestCLI** project.  It should something like **{GitHubDir}\Lab2-Implement_Computer_Vision\code\Starter\TestCLI**.
+1.  Open a command prompt and navigate to the build directory for the **TestCLI** project.  It should something like **{GitHubDir}\Lab2-Implement_Computer_Vision\code\Starter\TestCLI**.
+
+> **NOTE** Do not navigate to the debug directory
 
 1.  Run command **dotnet run**
 

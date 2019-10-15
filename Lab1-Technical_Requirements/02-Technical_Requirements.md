@@ -47,11 +47,11 @@ In the following steps, you will configure the Azure environment for the labs th
 
 ####    Cognitive Services
 
-While the first lab focuses on the [Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) Cognitive Service, Microsoft Azure allows you to create a cognitive service account that spans all services, or you can elect to create a cognitive service account for an individual service.  In the following steps, you will create an account that spans cognitive services.
+While the first lab focuses on the [Computer Vision](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) Cognitive Service, Microsoft Azure allows you to create a cognitive service account that spans all services, or you can elect to create a cognitive service account for an individual service.  In the following steps, you will create an account that spans all cognitive services.
 
 1.  Open the [Azure Portal](https://portal.azure.com)
 
-1.  Click **"+ Create Resource"** and then enter **cognitive services** in the search box 
+1.  Click **+ Create a Resource** and then enter **cognitive services** in the search box 
 
 1.  Choose **Cognitive Services** from the available options, then click **Create**
 
@@ -63,19 +63,17 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1.  For the pricing tier, select **S0**
 
-1.  Check the checkbox
+1.  Check the confirmation checkbox
 
 1.  Click **Create**
 
 1.  Navigate to the new resource, click **Quick Start**
 
-1.  Copy the url and the key to your notepad
+1.  Copy the **url** and the **endpoint** to your notepad
 
 ####    Azure Storage Account
 
-1.  Open the [Azure Portal](https://portal.azure.com)
-
-1.  Click **"+ Create Resource"** and then enter **storage** in the search box 
+1.  In the Azure Portal, click **+ Create a Resource** and then enter **storage** in the search box 
 
 1.  Choose **Storage account** from the available options, then click **Create**
 
@@ -99,19 +97,19 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1.  Copy the **Connection string** to your notepad
 
-1.  Click **Overview**, then click **Blobs**
+1.  Select **Overview**, then click **Containers**
 
-1.  Click **Add container**
+1.  Select **+ Container**
 
 1.  For the name, type **images**
 
-1.  Click **Create**
+1.  Select **OK**
 
 ####    Cosmos DB
 
 1.  Open the [Azure Portal](https://portal.azure.com)
 
-1.  Click **"+ Create Resource"** and then enter **cosmos** in the search box 
+1.  Click **"+ Create a Resource"** and then enter **cosmos** in the search box 
 
 1.  Choose **Azure Cosmos DB** from the available options.  
 
@@ -125,7 +123,7 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1.  Click **Create**
 
-1.  Navigate to the new resource, click **Keys**
+1.  Navigate to the new resource, under **Settings**, select **Keys**
 
 1.  Copy the **URI** and the **PRIMARY KEY** to your notepad
 
@@ -141,7 +139,7 @@ We will use the Bot Builder template for C# to create bots in this course.
 
 1.  Navigate to the download folder location and double-click on the install
 
-1.  Ensure that all versions of Visual Studio are selected and click **Instal**.  If prompted, click **End Tasks**.  
+1.  Ensure that all versions of Visual Studio are selected and click **Install**.  If prompted, click **End Tasks**.  
 
 1.  Click **Close**. You should now have the bot templates added to your Visual Studio templates. 
 
@@ -149,14 +147,14 @@ We will use the Bot Builder template for C# to create bots in this course.
 
 We will be developing a bot using the latest .NET SDK (v4).  In order to do local testing, we'll need to download the Bot Framework Emulator.
 
-##### Download the Bot Framework Emulator
+### Download the Bot Framework Emulator
 
 You can download the v4 Bot Framework Emulator for testing your bot locally. The instructions for the rest of the labs will assume you've downloaded the v4 Emulator. 
 
-1.  Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "4.5.1" or higher (select the "windows-setup.exe" file, if you are using windows).
+1.  Download the emulator by going to [this page](https://github.com/Microsoft/BotFramework-Emulator/releases) and downloading the most recent version of the emulator that has the tag "4.5.1" or higher (select the "*-windows-setup.exe" file, if you are using windows).
 
 > **Note** The emulator installs to 
-`"C:\Users\_your-username\AppData\Local\Programs\@bfemulatormain\Bot Framework Emulator.exe"`, but you can gain access to it through the start menu.
+`"C:\Users\_your-username\AppData\Local\Programs\@bfemulatormain\Bot Framework Emulator.exe"`, but you can gain access to it through the start menu by searching for **bot framework**.
 
 ## Credits
 
