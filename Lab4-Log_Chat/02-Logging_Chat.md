@@ -115,7 +115,7 @@ We can do this by updating what we're storing in our `UserData` object in the **
 1.  **after** the following code:
 
 ```csharp
-public class UserData
+public class PictureState
 {
     public string Greeted { get; set; } = "not greeted";
 ```
