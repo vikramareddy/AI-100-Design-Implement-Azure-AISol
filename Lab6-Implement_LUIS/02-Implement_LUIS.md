@@ -75,7 +75,7 @@ Let's look at how we can use LUIS to add some natural language capabilities. LUI
 
 1.  From the main page, click the **Create new app** button
 
-1.  Type a name, and click **Done**.  Close the dialog.
+1.  Type a name, and click **Done**.  Close the "How to create an effective LUIS app" dialog.
 
 ![LUIS New App](../images//LuisNewApp.png)
 
