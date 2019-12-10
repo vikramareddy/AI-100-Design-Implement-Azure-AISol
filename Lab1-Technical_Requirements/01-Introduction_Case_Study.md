@@ -4,9 +4,7 @@
 
 In this lab, we will introduce our workshop case study and setup tools on your local workstation and in your Azure instance to enable you to build tools within the Microsoft Cognitive Services suite.
 
-# Workshop Case Study
-
-## Scenario
+## Workshop Case Study
 
 You've been assigned a new customer, Adventure Works LLC, which sells bicycles and bicycle equipment to its customers.
 
@@ -48,20 +46,19 @@ While out of scope for this lab, this architecture integrates Azure's data solut
 
 ![Architecture Diagram](../images/AI_Immersion_Arch.png)
 
-
-## Architecture
+### Architecture
 
 Your team recently presented a potential architecture (below) that Adventure Works approved:
 
 ![architecture](../images/AI_Immersion_Arch.png)
 
-* [Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) allows uploading images, detects contents
-* [QnA Maker](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/) facilitating bot interactions from a static knowledge base
-* [Text Analytics](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) enables language detection
-* [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home)  (Language Understanding Intelligent Service)
+- [Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) allows uploading images, detects contents
+- [QnA Maker](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/) facilitating bot interactions from a static knowledge base
+- [Text Analytics](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) enables language detection
+- [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home)  (Language Understanding Intelligent Service)
 extracts intent and entities from text
-* [Azure Bot Service](https://azure.microsoft.com/en-us/services/bot-service/) connector service to enable chatbot interface to leverage app intelligence
+- [Azure Bot Service](https://azure.microsoft.com/en-us/services/bot-service/) connector service to enable chatbot interface to leverage app intelligence
 
 ## Next Steps
 
--   [Lab 01-02: Technical Requirements](02-Technical_Requirements.md)
+- [Lab 01-02: Technical Requirements](02-Technical_Requirements.md)

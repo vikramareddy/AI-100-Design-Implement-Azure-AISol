@@ -12,7 +12,7 @@ The LUIS functionality and functionality has already been covered in the worksho
 
 Now that we know what LUIS is, we'll want to plan our LUIS app. We already created a basic bot ("PictureBot") that responds to messages containing certain text. We will need to create intents that trigger the different actions that our bot can do, and create entities that require different actions. For example, an intent for our PictureBot may be "OrderPic" and it triggers the bot to provide an appropriate response.
 
-For example, in the case of Search (not implemented here), our PictureBot intent may be "SearchPics" and it triggers Azure Search service to look for photos, which requires a "facet" entity to know what to search for.  You can see more examples for planning your app [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/plan-your-app).
+For example, in the case of Search (not implemented here), our PictureBot intent may be "SearchPics" and it triggers Azure Cognitive Search service to look for photos, which requires a "facet" entity to know what to search for.  You can see more examples for planning your app [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/plan-your-app).
 
 Once we've thought out our app, we are ready to [build and train it](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-get-started-create-app).
 
@@ -137,9 +137,9 @@ So your utterances may become something like this when facets are labeled:
 
 ![Add Facet Entity](../images//SearchPicsIntentAfter.png)
 
->**Note** This workshop does not include Azure search, however, this functionality has been left in for the sake of demonstration.
+>**Note** This workshop does not include Azure Cognitive Search, however, this functionality has been left in for the sake of demonstration.
 
-1.  Click **Intents** in the left sidebar and add two more intents:
+1. Click **Intents** in the left sidebar and add two more intents:
 
 + Name one intent **"SharePic"**.  This might be identified by utterances like:
 
@@ -201,10 +201,10 @@ You can also [test your published endpoint in a browser](https://docs.microsoft.
 If you still have time, spend time exploring the www.luis.ai site. Select "Prebuilt domains" and see [what is already available for you](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-prebuilt-domains). You can also review some of the [other features](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-feature) and [patterns](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-patterns)
 , and check out the [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) for creating LUIS models, managing LUIS models, simulating conversations, and more. Later, you may also be interested in [another course that includes how to design LUIS schema](https://aka.ms/daaia).
 
-##  Extra Credit
+## Extra Credit
 
-If you wish to attempt to create a LUIS model including Azure Search, follow the training on [LUIS models including search](https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab01.5-luis).
+If you wish to attempt to create a LUIS model including Azure Cognitive Search, follow the training on [LUIS models including search](https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab01.5-luis).
 
 ## Next Steps
 
--   [Lab 07-01: Integrate LUIS](../Lab7-Integrate_LUIS/01-Introduction.md)
+- [Lab 07-01: Integrate LUIS](../Lab7-Integrate_LUIS/01-Introduction.md)

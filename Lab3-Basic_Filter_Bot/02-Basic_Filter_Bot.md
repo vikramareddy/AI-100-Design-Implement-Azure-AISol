@@ -12,89 +12,89 @@ Be mindful of the following AI Ethics principles when designing and implementing
 
 We encourage you to [read more](https://ai-ethics.azurewebsites.net/) about the Ethical considerations when building intelligent apps.
 
-## Pre-requisities
+## Pre-requisites
 
-1.  Follow the directions provided in [Lab1-Technical_Requirements.md](../Lab1-Technical_Requirements/02-Technical_Requirements.md) to download the v4 Bot Framework Emulator to enable you to test your bot locally.
+1. Follow the directions provided in [Lab1-Technical_Requirements.md](../Lab1-Technical_Requirements/02-Technical_Requirements.md) to download the v4 Bot Framework Emulator to enable you to test your bot locally.
 
 ## Lab 3.0 Create an Azure Web App Bot
 
 A bot created using the Microsoft Bot Framework can be hosted at any publicly-accessible URL.  For the purposes of this lab, we will register our bot using [Azure Bot Service](https://docs.microsoft.com/en-us/bot-framework/bot-service-overview-introduction).
 
-1.  Navigate to the [Azure portal](https://portal.azure.com). 
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1.  In the portal, navigate to your resource group, then click **+Add** and search for **bot**. 
+1. In the portal, navigate to your resource group, then click **+Add** and search for **bot**.
 
-1.  Select **Web App Bot**, and click **Create**. 
+1. Select **Web App Bot**, and click **Create**.
 
-1.  For the name, you'll have to create a unique identifier. We recommend using something along the lines of PictureBot[i][n] where [i] is your initials and [n] is a number (e.g. mine would be PictureBotamt6). 
+1. For the name, you'll have to create a unique identifier. We recommend using something along the lines of PictureBot[i][n] where [i] is your initials and [n] is a number (e.g. mine would be PictureBotamt6).
 
-1.  Select a region
+1. Select a region
 
-1.  For pricing tier, select **F0**. 
+1. For pricing tier, select **F0 (10K Premium Message)**.
 
-1.  Select the Bot template area
+1. Select the Bot template area
 
-1.  Select **C#**, then select **Echo Bot**, later we will update it to our our PictureBot.
+1. Select **C#**, then select **Echo Bot**, later we will update it to our our PictureBot.
 
-1.  Click **OK**, make sure that **Echo Bot** is displayed.
+    ![Bot template area is highlighted and the language and bot type is selected.](../images/lab02-createbot.png 'Select the bot type')
 
-1.  Configure a new App service plan (put it in the same location as your bot)
+1. Click **OK**, make sure that **Echo Bot** is displayed.
 
-1.  You can choose to turn Application Insights on or off. 
+1. Configure a new App service plan (put it in the same location as your bot)
 
-1.  **Do not** change or click on **Auto create App ID and password**, we will get to that later. 
+1. You can choose to turn Application Insights on or off.
 
-1.  Click **Create**
+1. **Do not** change or click on **Auto create App ID and password**, we will get to that later.
 
-![Create an Azure Bot Service](../images/CreateBot2.png)
+1. Click **Create**
 
-1.  When it's deployed, navigate to the new Azure Web App Bot Resource. 
+1. When it's deployed, navigate to the new Azure Web App Bot Resource.
 
-1.  Under **Bot Management**, click **Settings**
+1. Under **Bot Management**, click **Settings**
 
-1.  Click the **Manage** link for the **Microsoft App ID**
+1. Click the **Manage** link for the **Microsoft App ID**
 
 ![Click the Manage link](../images/ManageBot.png)
 
-1.  Click **New client secret**
+1. Click **New client secret**
 
-1.  For the name, type **PictureBot**
+1. For the name, type **PictureBot**
 
-1.  For the expires, select **Never**
+1. For the expires, select **Never**
 
-1.  Click **Add**
+1. Click **Add**
 
-1.  Record the secret into notepad or similar for later us in the lab(s).
+1. Record the secret into notepad or similar for later us in the lab(s).
 
-1.  Click **Overview**, record the application id into notepad or similar for later us in the lab(s).
+1. Click **Overview**, record the application id into notepad or similar for later us in the lab(s).
 
-1.  Navigate back to the **web app bot** resource, select the **Test in Web Chat** tab
+1. Navigate back to the **web app bot** resource, under **Bot management**, select the **Test in Web Chat** tab
 
-1.  Once it starts, explore what it is capable of doing.  As you will see, it only echos back your message.
+1. Once it starts, explore what it is capable of doing.  As you will see, it only echos back your message.
 
 ![The basic echo bot response](../images/EchoBot.png)
 
 ## Lab 3.1: Creating a simple bot and running it
 
-1.  Open **Visual Studio 2019** or later
+1. Open **Visual Studio 2019** or later
 
-1.  Click **Create new project**, search for **bot**.
+1. Click **Create new project**, search for **bot**.
 
-1.  Scroll down until you see **Echo Bot (Bot Framework v4)**
+1. Scroll down until you see **Echo Bot (Bot Framework v4)**
 
 ![Select the Echo Bot project template](../images/NewBotProject.png)
 
-1.  Click **Next**
+1. Click **Next**
 
-> **Note** If you do not see the Echo Bot template, you need to install the Visual Studio addins from the pre-req steps.
+> **Note** If you do not see the Echo Bot template, you need to install the Visual Studio add-in from the pre-req steps.
 
-1.  For the name, type **PictureBot**, click **Create**
+1. For the name, type **PictureBot**, click **Create**
 
-1.  Spend some time looking at all of the different things that are generated from the Echo Bot template. We won't spend time explaining every single file, but we **highly recommend** spending some time **later** working through and reviewing this sample (and the other Web App Bot sample - Basic Bot), if you have not already. It contains important and useful shells needed for bot development. You can find it and other useful shells and samples [here](https://github.com/Microsoft/BotBuilder-Samples).
+1. Spend some time looking at all of the different things that are generated from the Echo Bot template. We won't spend time explaining every single file, but we **highly recommend** spending some time **later** working through and reviewing this sample (and the other Web App Bot sample - Basic Bot), if you have not already. It contains important and useful shells needed for bot development. You can find it and other useful shells and samples [here](https://github.com/Microsoft/BotBuilder-Samples).
 
-1.  Start by right-clicking on the Solution and selecting **Build**. This will restore the nuget packages. 
+1. Start by right-clicking on the Solution and selecting **Build**. This will restore the nuget packages.
 
-1.  Open the **appsettings.json** file, update it by adding your bot service information you recorded above:
+1. Open the **appsettings.json** file, update it by adding your bot service information you recorded above:
 
 ```json
 {
@@ -103,15 +103,15 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 }
 ```
 
-1.  As you may know, renaming a Visual Studio Solution/Project is a very sensitive task. **Carefully** complete the following tasks so all the names reflect PictureBot instead of EchoBot:
+1. As you may know, renaming a Visual Studio Solution/Project is a very sensitive task. **Carefully** complete the following tasks so all the names reflect PictureBot instead of EchoBot:
 
-1.  Right-click the **Bots/Echobot.cs** file, then select **Rename**, rename the class file to **PictureBot.cs**
+1. Right-click the **Bots/Echobot.cs** file, then select **Rename**, rename the class file to **PictureBot.cs**
 
-1.  Rename the class and then change all references to the class to **PictureBot**.  You will know if you missed one when you attempt to build the project.
+1. If you are not prompted then you will need to manually rename the class and then change all references to the class to **PictureBot**.  You will know if you missed one when you attempt to build the project.
 
-1.  Right-click the project, select **Manage Nuget Packagaes**
+1. Right-click the project, select **Manage Nuget Packagaes**
 
-1.  Click the **Browse** tab, and install the following packages, ensure that you are using version **4.5.1**:
+1. Click the **Browse** tab, and install the following packages, ensure that you are using version **4.5.1**:
 
 * Microsoft.Bot.Builder.Azure
 * Microsoft.Bot.Builder.AI.Luis
@@ -122,7 +122,7 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 >**TIP**:  If you only have one monitor and you would like to easily switch between instructions and Visual Studio, you can now add the instruction files to your Visual Studio solution by right-clicking on the project in Solution Explorer and selecting **Add > Existing Item**. Navigate to "Lab2," and add all the files of type "MD File."
 
-#### Creating a Hello World bot
+### Creating a Hello World bot
 
 So now that we've updated our base shell to support the naming and NuGet packages we'll use throughout the rest of the labs, we're ready to start adding some custom code. First, we'll just create a simple "Hello world" bot that helps you get warmed up to building bots with the V4 SDK.
 
@@ -131,11 +131,11 @@ For example, if I say "Hello bot" and the bot responds "Hi, how are you?" that i
 
 ![Bots Concepts](../images/bots-concepts-middleware.png)
 
-1.  Open the **PictureBot.cs** file.  
+1. Open the **PictureBot.cs** file.  
 
-1.  Review the `OnMessageActivityAsync` method with the code below. This method is called every turn of the conversation. You'll see later why that fact is important, but for now, remember that OnMessageActivityAsync is called on every turn.
+1. Review the `OnMessageActivityAsync` method with the code below. This method is called every turn of the conversation. You'll see later why that fact is important, but for now, remember that OnMessageActivityAsync is called on every turn.
 
-1.  Press **F5** to start debugging.
+1. Press **F5** to start debugging.
 
 A few things to **Note**
 
@@ -153,15 +153,15 @@ To interact with your bot:
 
 * On the welcome page, click **Create a new bot configuration**
 
-*  For the name, type **PictureBot**
+* For the name, type **PictureBot**
 
-*  Enter the url that is displayed on your bot web page
+* Enter the url that is displayed on your bot web page
 
-*  Enter the AppId and the App Secret your entered into the appsettings.json
+* Enter the AppId and the App Secret your entered into the appsettings.json
 
 >**Note** If you do not enter id and secret values into the bot settings you would also not need to enter the values in the bot emulator
 
-*  Click **Save and connect**, then save your .bot file locally
+* Click **Save and connect**, then save your .bot file locally
 
 * You should now be able to converse with the bot.
 
@@ -179,17 +179,17 @@ Note how it says we will bypass ngrok for local addresses. We will not be using 
 
 You can read more about using the Emulator [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0).
 
-1.  Browse around and examine the sample bot code. In particular:
+1. Browse around and examine the sample bot code. In particular:
 
-- **Startup.cs**: is where we will add services/middleware and configure the HTTP request pipeline. There are many comments within to help you understand what is happening. Spend a few minutes reading through.
+* **Startup.cs**: is where we will add services/middleware and configure the HTTP request pipeline. There are many comments within to help you understand what is happening. Spend a few minutes reading through.
 
-- **PictureBot.cs**: The `OnMessageActivityAsync` method is the entry point which waits for a message from the user is where we can react to a message once received and wait for further messages.  We can use `turnContext.SendActivityAsync` to send a message from the bot back to the user.
+* **PictureBot.cs**: The `OnMessageActivityAsync` method is the entry point which waits for a message from the user is where we can react to a message once received and wait for further messages.  We can use `turnContext.SendActivityAsync` to send a message from the bot back to the user.
 
 ## Lab 3.2:  Managing state and services
 
-1.  Navigate again to the **Startup.cs** file
+1. Navigate again to the **Startup.cs** file
 
-1.  Update the list of `using` statements by adding the following:
+1. Update the list of `using` statements by **adding** the following:
 
 ```csharp
 using System;
@@ -205,9 +205,10 @@ using Microsoft.PictureBot;
 using Microsoft.Bot.Builder.AI.Luis;
 using Microsoft.Bot.Builder.Dialogs;
 ```
+
 We won't use all of the above namespaces just yet, but can you guess when we might?
 
-1.  In the **Startup.cs** class, focus your attention on the `ConfigureServices` method which is used to add services to the bot. Review the contents carefully, noting what is built in for you.
+1. In the **Startup.cs** class, focus your attention on the `ConfigureServices` method which is used to add services to the bot. Review the contents carefully, noting what is built in for you.
 
 > A few other notes for a deeper understanding:
 >
@@ -215,35 +216,36 @@ We won't use all of the above namespaces just yet, but can you guess when we mig
 > * You can use local memory for this lab and testing purposes. For production, you'll have to implement a way to [manage state data](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-storage-concept?view=azure-bot-service-4.0). In the big chunk of comments within `ConfigureServices`, there are some tips for this.
 > * At the bottom of the method, you may notice we create and register state accessors. Managing state is a key in creating intelligent bots, which you can [read more about here](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-dialog-state?view=azure-bot-service-4.0).
 
-Fortunately, this shell is pretty comprehensive, so we only have to add two items: 
+Fortunately, this shell is pretty comprehensive, so we only have to add two items:
 
-*   Middleware
-*   Custom state accessors.
+* Middleware
+* Custom state accessors.
 
-#### Middleware
+### Middleware
 
-Middleware is simply a class or set of classes that sit between the adapter and your bot logic, and are added to your adapter's middleware collection during initialization. 
+Middleware is simply a class or set of classes that sit between the adapter and your bot logic, and are added to your adapter's middleware collection during initialization.
 
-The SDK allows you to write your own middleware or add reusable components of middleware created by others. Every activity coming in or out of your bot flows through your middleware. We'll get deeper into this later in the lab, but for now, it's important to understand that every activity flows through your middleware, because it is located in the `ConfigureServices` method that gets called at run time (which runs in between every message being sent by a user and `OnMessageActivityAsync`). 
+The SDK allows you to write your own middleware or add reusable components of middleware created by others. Every activity coming in or out of your bot flows through your middleware. We'll get deeper into this later in the lab, but for now, it's important to understand that every activity flows through your middleware, because it is located in the `ConfigureServices` method that gets called at run time (which runs in between every message being sent by a user and `OnMessageActivityAsync`).
 
-1.  Add a new folder called **Middleware**
+1. Add a new folder called **Middleware**
 
-1.  Right-click on the **Middleware** folder and select **Add>Existing Item**. 
+1. Right-click on the **Middleware** folder and select **Add>Existing Item**.
 
-1.  Navigate to **{GitHubDir}\Lab3-Basic_Filter_Bot\code\Middleware**, select all three files, and select **Add**
+1. Navigate to **{GitHubDir}\Lab3-Basic_Filter_Bot\code\Middleware**, select all three files, and select **Add**
 
-1.  Add the following variables to your **Startup** class:
+1. Add the following variables to your **Startup** class:
 
 ```csharp
 private ILoggerFactory _loggerFactory;
 private bool _isProduction = false;
 ```
 
-2.  Replace the code in the **ConfigureServices** method: 
+1. Replace the following code in the **ConfigureServices** method:
 
 ```csharp
 services.AddTransient<IBot, PictureBot.Bots.PictureBot>();
-``` 
+```
+
 with the following code:
 
 ```csharp
@@ -295,11 +297,10 @@ services.AddBot<PictureBot.Bots.PictureBot>(options =>
     var middleware = options.Middleware;
     // Add middleware below with "middleware.Add(...."
     // Add Regex below
-    
 });
 ```
 
-1.  Replace the **Configure** method with the following code:
+1. Replace the **Configure** method with the following code:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -331,9 +332,9 @@ For each accessor we create, we have to first give it a property name. For our s
     * Is the user currently in the middle of a dialog?
         * This is what we'll use to determine where a user is in a given dialog or conversation flow. If you aren't familiar with dialogs, don't worry, we'll get to that soon.
 
-We can use these constructs to keep track of what we'll call `PictureState`. 
+We can use these constructs to keep track of what we'll call `PictureState`.
 
-1.  In the **ConfigureServices** method of the **Startup.cs** file, add the `PictureState` within the list of custom state accessors and to keep track of the dialogs, you'll use the built-in `DialogState`:
+1. In the **ConfigureServices** method of the **Startup.cs** file, add the `PictureState` within the list of custom state accessors and to keep track of the dialogs, you'll use the built-in `DialogState`:
 
 ```csharp
 // Create and register state accesssors.
@@ -373,9 +374,9 @@ You should see an error (red squiggly) beneath some of the terms. But before fix
 
 Now back to the errors you're seeing. You've said you're going to store this information, but you haven't yet specified where or how. We have to update "PictureState.cs" and "PictureBotAccessor.cs" to have and access the information we want to store.
 
-1.  Right-click the project and select **Add->Class**, select a Class file and name it **PictureState**
+1. Right-click the project and select **Add->Class**, select a Class file and name it **PictureState**
 
-1.  Copy the following code into **PictureState.cs**. 
+1. Copy the following code into **PictureState.cs**.
 
 ```csharp
 using System.Collections.Generic;
@@ -400,11 +401,11 @@ namespace Microsoft.PictureBot
 }
 ```
 
-1.  Review the code.  This is where we'll store information about the active conversation.  Feel free to add some comments explaining the purposes of the strings. Now that you have PictureState appropriately initialized, you can create the PictureBotAccessor, to remove the errors you were getting in **Startup.cs**.
+1. Review the code.  This is where we'll store information about the active conversation.  Feel free to add some comments explaining the purposes of the strings. Now that you have PictureState appropriately initialized, you can create the PictureBotAccessor, to remove the errors you were getting in **Startup.cs**.
 
-1.  Right-click the project and select **Add->Class**, select a Class file and name it **PictureBotAccessors**
+1. Right-click the project and select **Add->Class**, select a Class file and name it **PictureBotAccessors**
 
-1.  Copy the following into it:
+1. Copy the following into it:
 
 ```csharp
 using System;
@@ -461,9 +462,9 @@ namespace Microsoft.PictureBot
 }
 ```
 
-1.  Review the code, notice the implementation of `PictureStateName` and `PictureState`.
+1. Review the code, notice the implementation of `PictureStateName` and `PictureState`.
 
-1.  Wondering if you configured it correctly? Return to **Startup.cs** and confirm your errors around creating the custom state accessors have been resolved.
+1. Wondering if you configured it correctly? Return to **Startup.cs** and confirm your errors around creating the custom state accessors have been resolved.
 
 ## Lab 3.3: Organizing code for bots
 
@@ -475,9 +476,9 @@ This PictureBot will be organized in the following way:
 * **Responses** - classes which define the outputs to the users
 * **Models** - the objects to be modified
 
-1.  Create two new folders "**Responses**" and "**Models**" within your project. (Hint: You can right-click on the project and select "Add->Folder").
+1. Create two new folders "**Responses**" and "**Models**" within your project by right-clicking the project and selecting **Add->New Folder**
 
-#### Dialogs
+### Dialogs
 
 You may already be familiar with Dialogs and how they work. If you aren't, read [this page on Dialogs](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-dialog-manage-conversation-flow?view=azure-bot-service-4.0&tabs=csharp) before continuing.
 
@@ -491,7 +492,7 @@ For the purposes of this lab, we are going to keep things fairly simple, but aft
 
 Since we only have two dialogs, we can keep it simple and put them in the PictureBot class. However, complex scenarios may require splitting them out into different dialogs in a folder (similar to how we'll separate Responses and Models).
 
-1.  Navigate back to **PictureBot.cs** and replace your `using` statements with the following:
+1. Navigate back to **PictureBot.cs** and replace your `using` statements with the following:
 
 ```csharp
 using System.Threading;
@@ -512,11 +513,11 @@ using Newtonsoft.Json.Linq;
 using Microsoft.PictureBot;
 ```
 
-You've just added access to your Models/Responses, as well as to the services LUIS and Azure Search. Finally, the Newtonsoft references will help you parse the responses from LUIS, which we will see in a subsequent lab.
+You've just added access to your Models/Responses, as well as to the services LUIS and Azure Cognitive Search. Finally, the Newtonsoft references will help you parse the responses from LUIS, which we will see in a subsequent lab.
 
 Next, we'll need to override the `OnTurnAsync` method with one that processes incoming messages and then routes them through the various dialogs.
 
-1.  Replace the **PictureBot** class with the following:
+1. Replace the **PictureBot** class with the following:
 
 ```csharp
 /// <summary>
@@ -631,9 +632,9 @@ We'll add some more to this in a bit. You can ignore any errors for now.
 
 So before we fill out our dialogs, we need to have some responses ready. Remember, we're going to keep dialogs and responses separate, because it results in cleaner code, and an easier way to follow the logic of the dialogs. If you don't agree or understand now, you will soon.
 
-1.  In the **Responses** folder, create two classes, called **MainResponses.cs** and **SearchResponses.cs**. As you may have figured out, the Responses files will simply contain the different outputs we may want to send to users, no logic.
+1. In the **Responses** folder, create two classes, called **MainResponses.cs** and **SearchResponses.cs**. As you may have figured out, the Responses files will simply contain the different outputs we may want to send to users, no logic.
 
-1.  Within **MainResponses.cs** add the following:
+1. Within **MainResponses.cs** replace the code with the following:
 
 ```csharp
 using System.Threading.Tasks;
@@ -678,7 +679,7 @@ namespace PictureBot.Responses
 
 Note that there are two responses with no values (ReplyWithGreeting and ReplyWithConfused). Fill these in as you see fit.
 
-1.  Within "SearchResponses.cs" add the following:
+1. Within "SearchResponses.cs" replace the code with the following:
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -707,21 +708,21 @@ namespace PictureBot.Responses
 }
 ```
 
-1.  Notice a whole task is missing. Fill in as you see fit, but make sure the new task has the name "ReplyWithSearchRequest", or you may have issues later.
+1. Notice a whole task is missing. Fill in as you see fit, but make sure the new task has the name "ReplyWithSearchRequest", or you may have issues later.
 
 #### Models
 
 Due to time limitations, we will not be walking through creating all the models. They are straightforward, but we recommend taking some time to review the code within after you've added them. 
 
-1.  Right-click on the **Models** folder and select **Add>Existing Item**. 
+1. Right-click on the **Models** folder and select **Add>Existing Item**.
 
-1.  Navigate to **{GitHubDir}\Lab3-Basic_Filter_Bot\code\Models**, select all three files, and select **Add**.
+1. Navigate to **{GitHubDir}\Lab3-Basic_Filter_Bot\code\Models**, select all three files, and select **Add**.
 
 ## Lab 3.4: Regex and Middleware
 
 There are a number of things that we can do to improve our bot.  First of all, we may not want to call LUIS for a simple "search pictures" message, which the bot will get fairly frequently from its users.  A simple regular expression could match this, and save us time (due to network latency) and money (due to cost of calling the LUIS service).
 
-Also, as the complexity of our bot grows and we are taking the user's input and using multiple services to interpret it, we need a process to manage that flow.  For example, try regular expressions first, and if that doesn't match, call LUIS, and then perhaps we also drop down to try other services like [QnA Maker](http://qnamaker.ai) or Azure Search. A great way to manage this is through [Middleware](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-middleware?view=azure-bot-service-4.0), and the SDK does a great job supporting that.
+Also, as the complexity of our bot grows and we are taking the user's input and using multiple services to interpret it, we need a process to manage that flow.  For example, try regular expressions first, and if that doesn't match, call LUIS, and then perhaps we also drop down to try other services like [QnA Maker](http://qnamaker.ai) or Azure Cognitive Search. A great way to manage this is through [Middleware](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-middleware?view=azure-bot-service-4.0), and the SDK does a great job supporting that.
 
 Before continuing with the lab, learn more about middleware and the Bot Framework SDK:
 
@@ -733,7 +734,7 @@ Before continuing with the lab, learn more about middleware and the Bot Framewor
 
 Ultimately, we'll use some middleware to try to understand what users are saying with regular expressions (Regex) first, and if we can't, we'll call LUIS. If we still can't, then we'll drop down to a generic "I'm not sure what you mean" response, or whatever you put for "ReplyWithConfused."
 
-1.  In **Startup.cs**, below the "Add Regex below" comment within `ConfigureServices`, add the following:
+1. In **Startup.cs**, below the "Add Regex below" comment within `ConfigureServices`, add the following:
 
 ```csharp
 middleware.Add(new RegExpRecognizerMiddleware()
@@ -746,9 +747,9 @@ middleware.Add(new RegExpRecognizerMiddleware()
 
 > We're really just skimming the surface of using regular expressions. If you're interested, you can [learn more here](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
-1.  You may notice that the `options.State` has been deprecated.  Let's migrate to the newest method:
+1. You may notice that the `options.State` has been deprecated.  Let's migrate to the newest method:
 
-1.  Remove the following code:
+1. Remove the following code:
 
 ```csharp
 var conversationState = new ConversationState(dataStore);
@@ -756,7 +757,7 @@ var conversationState = new ConversationState(dataStore);
 options.State.Add(conversationState);
 ```
 
-1.  Replace it with
+1. Replace it with
 
 ```csharp
 var userState = new UserState(dataStore);
@@ -769,7 +770,7 @@ services.AddSingleton<UserState>(userState);
 services.AddSingleton<ConversationState>(conversationState);
 ```
 
-1.  Also replace the `Configure` code to now pull from the dependency injection version:
+1. Also replace the `ConfigureServices` code to now pull from the dependency injection version:
 
 ```csharp
 var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
@@ -779,7 +780,7 @@ if (conversationState == null)
 }
 ```
 
-1.  Replace it with
+1. Replace it with
 
 ```csharp
 var conversationState = services.BuildServiceProvider().GetService<ConversationState>();
@@ -796,11 +797,11 @@ Without adding LUIS, our bot is really only going to pick up on a few variations
 
 ## Lab 3.5: Running the bot
 
-#### MainDialog, Again
+### MainDialog, Again
 
 Let's get down to business. We need to fill out MainDialog within PictureBot.cs so that our bot can react to what users say they want to do.  Based on our results from Regex, we need to direct the conversation in the right direction. Read the code carefully to confirm you understand what it's doing.
 
-1.  In **PictureBot.cs**, paste in the following method code:
+1. In **PictureBot.cs**, add the following by pasting in the following method code:
 
 ```csharp
 // If we haven't greeted a user yet, we want to do that first, but for the rest of the
@@ -872,30 +873,29 @@ public async Task<DialogTurnResult> MainMenuAsync(WaterfallStepContext stepConte
 }
 ```
 
-1.  Press **F5** to run the bot. 
+1. Press **F5** to run the bot.
 
-1.  Using the bot emulator, test the bot by sending some commands:
+1. Using the bot emulator, test the bot by sending some commands:
 
--   help
--   share pics
--   order pics
--   search pics
-
+* help
+* share pics
+* order pics
+* search pics
+  
 > **Note** If you get a 500 error in your bot, you can place a break point in the **Startup.cs** file inside the **OnTurnError** delegate method.  The most common error is a mismatch of the AppId and AppSecret.
 
-1.  If the only thing that didn't give you the expected result was "search pics", everything is working how you configured it. "search pics" failing is the expected behavior at this point in the lab, but why? Have an answer before you move on!
+1. If the only thing that didn't give you the expected result was "search pics", everything is working how you configured it. "search pics" failing is the expected behavior at this point in the lab, but why? Have an answer before you move on!
 
 >Hint: Use break points to trace matching to case "search", starting from **PictureBot.cs**.
-
 >Get stuck or broken? You can find the solution for the lab up until this point under [resources/code/Finished](./code/Finished). The readme file within the solution (once you open it) will tell you what keys you need to add in order to run the solution. We recommend using this as a reference, not as a solution to run, but if you choose to run it, be sure to add the necessary keys for your enviroment.
 
-##  Resources
+## Resources
 
--   [Bot Builder Basics](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0&tabs=cs)
--   [.NET Bot Builder SDK tutorial](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart?view=azure-bot-service-4.0)
--   [Bot Service Documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
--   [Deploy your bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0&tabs=newrg)
+* [Bot Builder Basics](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0&tabs=cs)
+* [.NET Bot Builder SDK tutorial](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-sdk-quickstart?view=azure-bot-service-4.0)
+* [Bot Service Documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Deploy your bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-deploy-az-cli?view=azure-bot-service-4.0&tabs=newrg)
 
-##  Next Steps
+## Next Steps
 
--   [Lab 04-01: Log Chat](../Lab4-Log_Chat/01-Introduction.md)
+* [Lab 04-01: Log Chat](../Lab4-Log_Chat/01-Introduction.md)

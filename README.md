@@ -1,6 +1,6 @@
 # AI-100-DesignImplementAzureAISol
-Lab files for AI100T01A ILT Course
 
+Lab files for AI100T01A ILT Course
 
 ## Lab 1: Meeting the Technical Requirements
 
@@ -18,7 +18,7 @@ This bot will be built in the Microsoft Bot Framework. We will evoke the archite
 
 We will also be testing our bot in the Bot Emulator, and addressing the middleware that enables us to perform specialized tasks on the message that the bot receives from the user.
 
-We will evoke some concepts pertaining to Azure Search, and Microsoft's Language Understanding Intelligent Service (LUIS), but will not implement them in this lab.
+We will evoke some concepts pertaining to Azure Cognitive Search, and Microsoft's Language Understanding Intelligent Service (LUIS), but will not implement them in this lab.
 
 ## Lab 4: Log Bot Chat
 
