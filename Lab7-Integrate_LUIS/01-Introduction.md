@@ -6,4 +6,4 @@ Now that our bot is capable of taking in a user's input and responding based on 
 
 ## Next Steps
 
--   [Lab 07-02: Integrate LUIS with Bots](../Lab7-Integrate_LUIS/02-LUIS_Integrate_Bot.md)
+- [Lab 07-02: Integrate LUIS with Bots](../Lab7-Integrate_LUIS/02-LUIS_Integrate_Bot.md)
