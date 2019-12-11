@@ -34,11 +34,11 @@ Creating a LUIS service in the portal is optional, as LUIS provides you with a "
 
 1. Open the [Azure Portal](https://portal.azure.com)
 
-1. Click **Create a resource**
+1. Select **Create a resource**
 
 1. Enter **Language Understanding** in the search box and choose **Language Understanding**
 
-1. Click **Create**
+1. Select **Create**
 
 1. For the name, type **{YOURINIT}luisbot**
 
@@ -48,7 +48,11 @@ Creating a LUIS service in the portal is optional, as LUIS provides you with a "
 
 1. Select your resources group
 
-1. Click **Create**
+1. For the runtime location, select a location similar to your resource group
+
+1. For the runtime pricing, select **F0**
+
+1. Select **Create**
 
 **Note** The Luis AI web site does not allow you to control or publish your Azure based cognitive services resources.  You will need to call the APIs in order to train and publish them.
 
@@ -62,20 +66,20 @@ Let's look at how we can use LUIS to add some natural language capabilities. LUI
 
 > **Note** If you created a key in a **Europe** region, you will need to create your application at [https://eu.luis.ai/](https://eu.luis.ai/). If you created a key in an **Australia** region, you will need to create your application at [https://au.luis.ai/](https://au.luis.ai/). You can read more about the LUIS publishing regions [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions).
 
-1. Sign in using your Microsoft account. This should be the same account that you used to create the LUIS key in the previous section. 
+1. Sign in using your Organization or Microsoft account. This should be the same account that you used to create the LUIS key in the previous section.
 
-1. Click **Create a LUIS app now**. You should be redirected to a list of your LUIS applications.  If prompted, click **Migrate Layer**.  
+1. Select **Create a LUIS app now**. You should be redirected to a list of your LUIS applications.  If prompted, select **Migrate Later**.  
 
-1. If this is your first time, you will be asked to agree with service terms of use and select your county. 
+1. If this is your first time, you will be asked to agree with service terms of use and select your county.
 
-- On next step you need to chose recommended option and link your Azure account with LUIS. 
+- On next step you need to chose recommended option and link your Azure account with LUIS.
 - Finally confirm your settings and you will be forwarded to the LUIS App page.
 
-> **Note**: Notice that there is also an "Import App" next to the "New App" button on [the current page](https://www.luis.ai/applications).  After creating your LUIS application, you have the ability to export the entire app as JSON and check it into source control.  This is a recommended best practice, so you can version your LUIS models as you version your code.  An exported LUIS app may be re-imported using that "Import App" button.  If you fall behind during the lab and want to cheat, you can click the "Import App" button and import the [LUIS model](./code/LUIS/PictureBotLuisModel.json).
+> **Note**: Notice that there is also an "Import App" next to the "New App" button on [the current page](https://www.luis.ai/applications).  After creating your LUIS application, you have the ability to export the entire app as JSON and check it into source control.  This is a recommended best practice, so you can version your LUIS models as you version your code.  An exported LUIS app may be re-imported using that "Import App" button.  If you fall behind during the lab and want to cheat, you can select the "Import App" button and import the [LUIS model](./code/LUIS/PictureBotLuisModel.json).
 
-1. From the main page, click the **Create new app** button
+1. From the main page, select the **Create new app** button
 
-1. Type a name, and click **Done**.  Close the "How to create an effective LUIS app" dialog.
+1. Type a name, and select **Done**.  Close the "How to create an effective LUIS app" dialog.
 
 ![LUIS New App](../images//LuisNewApp.png)
 
@@ -92,9 +96,9 @@ We want our bot to be able to do the following things:
 
 Let's create intents for the user requesting each of these.  
 
-1. Click the **Create new intent** button.
+1. Select the **Create new intent** button.
 
-1. Name the first intent **Greeting** and click **Done**.  
+1. Name the first intent **Greeting** and select **Done**.  
 
 1. Give several examples of things the user might say when greeting the bot, pressing "Enter" after each one.
 
@@ -102,17 +106,17 @@ Let's create intents for the user requesting each of these.
 
 Let's see how to create an entity.  When the user requests to search the pictures, they may specify what they are looking for.  Let's capture that in an entity.
 
-1. Click on **Entities** in the left-hand column and then click **Create new entity**.  
+1. Select on **Entities** in the left-hand column and then select **Create new entity**.  
 
 1. Give it an entity name **facet**
 
 1. For the entity type select ["Simple"](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-concept-entity-types).  
 
-1. Click **Done**.
+1. Select **Done**.
 
 ![Add Facet Entity](../images//LuisCreateEntity.png)
 
-1. Click **Intents** in the left-hand sidebar and then click the **Create new intent** button.  
+1. Select **Intents** in the left-hand sidebar and then click the **Create new intent** button.  
 
 1. Give it an intent name of **SearchPics** and then click **Done**.
 
@@ -127,11 +131,11 @@ Just as we did for Greetings, let's add some sample utterances (words/phrases/se
 - Show me pictures of men wearing glasses
 - Show me happy baby pics
 
-Once we have some utterances, we have to teach LUIS how to pick out the **search topic** as the "facet" entity. Whatever the "facet" entity picks up is what will be searched. 
+Once we have some utterances, we have to teach LUIS how to pick out the **search topic** as the "facet" entity. Whatever the "facet" entity picks up is what will be searched.
 
 1. Hover and click the word (or click consecutive words to select a group of words) and then select the "facet" entity.
 
-![Labelling Entity](../images//LuisFacet.png)
+![Labeling Entity](../images//LuisFacet.png)
 
 So your utterances may become something like this when facets are labeled:
 
@@ -139,7 +143,7 @@ So your utterances may become something like this when facets are labeled:
 
 >**Note** This workshop does not include Azure Cognitive Search, however, this functionality has been left in for the sake of demonstration.
 
-1. Click **Intents** in the left sidebar and add two more intents:
+1. Select **Intents** in the left sidebar and add two more intents:
 
 - Name one intent **"SharePic"**.  This might be identified by utterances like:
 
@@ -162,9 +166,9 @@ When choosing utterances, it can be helpful to use a combination of questions, c
 
 We are now ready to train our model.
 
-1. Click **Train** in the top right bar.  This builds a model to do utterance --> intent mapping with the training data you've provided. Training is not always immediate. Sometimes, it gets queued and can take several minutes.
+1. Select **Train** in the top right bar.  This builds a model to do utterance --> intent mapping with the training data you've provided. Training is not always immediate. Sometimes, it gets queued and can take several minutes.
 
-1. Click on **MANAGE** in the top bar. You'll have several options on the left side of the window (Application Information, Keys and Endpoints, Publish Settings, Versions, Collaborators). You can read more about the various publish options [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/PublishApp).
+1. Select **MANAGE** in the top bar. You'll have several options on the left side of the window (Application Information, Keys and Endpoints, Publish Settings, Versions, Collaborators). You can read more about the various publish options [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/PublishApp).
 
 1. Select **Azure resources**, you can use the keys here for your LUIS integration later or simply use the keys from the Azure Portal
 
@@ -172,19 +176,19 @@ We are now ready to train our model.
 
 1. Select **Production**, and [read about the reasons for the two endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-version).
 
-1. Finally, click **Publish**.
+1. Finally, select **Publish**.
 
 ![Publish LUIS App](../images//LuisPublish.png)
 
 Publishing creates an endpoint to call the LUIS model.  The URL will be displayed, which will be explained in a later lab.
 
-1. Click **Application Information**, copy the **Application ID**.
+1. Select **Application Information**, copy the **Application ID**.
 
-1. Click **Azure Resources**, copy the Key and the Endpoint URL.
+1. Select **Azure Resources**, copy the Key and the Endpoint URL.
 
 **Note** We won't use the whole url, you will only need the **https://{region}.api.cognitive.microsoft.com** part
 
-1. Click **Test** in the top right bar. Try typing a few utterances and see the intents returned. Familiarize yourself with [interactive testing](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Train-Test#interactive-testing) and [reviewing endpoint utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt) as you may want to do this now or in a future lab.
+1. Select **Test** in the top right bar. Try typing a few utterances and see the intents returned. Familiarize yourself with [interactive testing](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Train-Test#interactive-testing) and [reviewing endpoint utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt) as you may want to do this now or in a future lab.
 
 One quick example is shown below. I have noticed that my model incorrectly assigned "send me a swimming photo" as SharePic, when it should be SearchPics. I reassigned the intent.
 

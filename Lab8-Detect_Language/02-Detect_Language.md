@@ -84,7 +84,7 @@ await _accessors.ConversationState.SaveChangesAsync(turnContext);
 
 ```csharp
 //Check the language
-var result = _textAnalyticsClient.DetectLanguage(turnContext.Activity.Text);
+var result = _textAnalyticsClient.DetectLanguage(turnContext.Activity.Text, "us");
 
 switch (result.DetectedLanguages[0].Name)
 {

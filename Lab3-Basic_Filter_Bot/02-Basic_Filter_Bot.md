@@ -111,12 +111,12 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1. Right-click the project, select **Manage Nuget Packagaes**
 
-1. Select the **Browse** tab, and install the following packages, ensure that you are using version **4.5.1**:
+1. Select the **Browse** tab, and install the following packages, ensure that you are using version **4.6.3**:
 
 * Microsoft.Bot.Builder.Azure
 * Microsoft.Bot.Builder.AI.Luis
 * Microsoft.Bot.Builder.Dialogs
-* Microsoft.Azure.Search (version, 9.1.0 or later)
+* Microsoft.Azure.Search (version, 10.1.0 or later)
 
 1. Build the solution.
 
