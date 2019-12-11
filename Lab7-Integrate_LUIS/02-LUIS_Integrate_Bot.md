@@ -8,18 +8,18 @@ We will have to update our bot in order to use LUIS.  We can do this by modifyin
 
 > Prerequisites: This lab builds on [Lab 3](../Lab3-Basic_Filter_Bot/02-Basic_Filter_Bot.md). It is recommended that you do that lab in order to be able to implement logging as covered in this lab. If you have not, reading carefully through all the exercises and looking at some of the code or using it in your own applications may be sufficient, depending on your needs.
 
->NOTE: If you intend to use the code in the Finished folder, you MUST replace the app specific information with your own app IDs and endpoints.
+> NOTE: If you intend to use the code in the Finished folder, you MUST replace the app specific information with your own app IDs and endpoints.
 
 ## Lab 7.1: Adding natural language understanding
 
 ### Adding LUIS to Startup.cs
 
-1.  If not already open, open your **PictureBot** solution in Visual Studio
+1. If not already open, open your **PictureBot** solution in Visual Studio
 
 > **NOTE** You can also start with the **{GitHubPath}/Lab7-Integrate_LUIS/code/Starter/PictureBot/PictureBot.sln** solution if you did not start from Lab 1.
-> Be sure to replace all the appsettings values
+> Be sure to replace all the app settings values
 
-1.  Open **Startup.cs** and locate the `ConfigureServices` method. We'll add LUIS here by adding an additional service for LUIS after creating and registering the state accessors.
+1. Open **Startup.cs** and locate the `ConfigureServices` method. We'll add LUIS here by adding an additional service for LUIS after creating and registering the state accessors.
 
 Below:
 
@@ -58,7 +58,7 @@ services.AddSingleton(sp =>
 });
 ```
 
-1.  Modify the **appsettings.json** to include the following properties, be sure to fill them in with your LUIS instance values:
+1. Modify the **appsettings.json** to include the following properties, be sure to fill them in with your LUIS instance values:
 
 ```json
 "luisAppId": "",
@@ -70,13 +70,13 @@ services.AddSingleton(sp =>
 
 ## Lab 7.2: Adding LUIS to PictureBot's MainDialog
 
-1.  Open **PictureBot.cs.**. The first thing you'll need to do is initialize the LUIS recognizer, similar to how you did for `PictureBotAccessors`. Below the commented line `// Initialize LUIS Recognizer`, add the following:
+1. Open **PictureBot.cs.**. The first thing you'll need to do is initialize the LUIS recognizer, similar to how you did for `PictureBotAccessors`. Below the commented line `// Initialize LUIS Recognizer`, add the following:
 
 ```csharp
 private LuisRecognizer _recognizer { get; } = null;
 ```
 
-1.  Navigate to the **PictureBot** constructor:
+1. Navigate to the **PictureBot** constructor:
 
 ```csharp
 public PictureBot(PictureBotAccessors accessors, ILoggerFactory loggerFactory /*, LuisRecognizer recognizer*/)
@@ -84,7 +84,7 @@ public PictureBot(PictureBotAccessors accessors, ILoggerFactory loggerFactory /*
 
 Now, maybe you noticed we had this commented out in your previous labs, maybe you didn't. You have it commented out now, because up until now, you weren't calling LUIS, so a LUIS recognizer didn't need to be an input to PictureBot. Now, we are using the recognizer.
 
-1.  Uncomment the input requirement (parameter `LuisRecognizer recognizer`), and add the following line below `// Add instance of LUIS Recognizer`:
+1. Uncomment the input requirement (parameter `LuisRecognizer recognizer`), and add the following line below `// Add instance of LUIS Recognizer`:
 
 ```csharp
 _recognizer = recognizer ?? throw new ArgumentNullException(nameof(recognizer));
@@ -94,7 +94,7 @@ Again, this should look very similar to how we initialized the instance of `_acc
 
 As far as updating our `MainDialog` goes, there's no need for us to add anything to the initial `GreetingAsync` step, because regardless of user input, we want to greet the user when the conversation starts.
 
-1.  In `MainMenuAsync`, we do want to start by trying Regex, so we'll leave most of that. However, if Regex doesn't find an intent, we want the `default` action to be different. That's when we want to call LUIS.
+1. In `MainMenuAsync`, we do want to start by trying Regex, so we'll leave most of that. However, if Regex doesn't find an intent, we want the `default` action to be different. That's when we want to call LUIS.
 
 Within the `MainMenuAsync` switch block, replace:
 
@@ -156,9 +156,9 @@ Another thing to note is that after every response that called LUIS, we're addin
 
 ## Lab 7.3: Testing natural speech phrases
 
-1.  Press **F5** to run the app. 
+1. Press **F5** to run the app.
 
-1.  Switch to your Bot Emulator. Try sending the bots different ways of searching pictures. What happens when you say "send me pictures of water" or "show me dog pics"? Try some other ways of asking for, sharing and ordering pictures.
+1. Switch to your Bot Emulator. Try sending the bots different ways of searching pictures. What happens when you say "send me pictures of water" or "show me dog pics"? Try some other ways of asking for, sharing and ordering pictures.
 
 If you have extra time, see if there are things LUIS isn't picking up on that you expected it to. Maybe now is a good time to go to luis.ai, [review your endpoint utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/label-suggested-utterances), and retrain/republish your model.
 
@@ -170,10 +170,10 @@ If you're having trouble customizing your LUIS implementation, review the docume
 
 >Get stuck or broken? You can find the solution for the lab up until this point under [code/Finished](./code/Finished). You will need to insert the keys for your Azure Bot Service in the `appsettings.json` file. We recommend using this code as a reference, not as a solution to run, but if you choose to run it, be sure to add the necessary keys (in this section, there shouldn't be any).
 
-**Extra Credit**
+## **Extra Credit**
 
-If you wish to attempt to integrate LUIS bot including Azure Search, building on the prior supplementary LUIS model-with-search [training] (https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab01.5-luis), follow the following trainings: [Azure Search](https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab02.1-azure_search), and [Azure Search Bots](https://github.com/Azure/LearnAI-Bootcamp/blob/master/lab02.2-building_bots/2_Azure_Search.md).
+If you wish to attempt to integrate LUIS bot including Azure Cognitive Search, building on the prior supplementary LUIS model-with-search [training] (https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab01.5-luis), follow the following trainings: [Azure Cognitive Search](https://github.com/Azure/LearnAI-Bootcamp/tree/master/lab02.1-azure_search), and [Azure Cognitive Search Bots](https://github.com/Azure/LearnAI-Bootcamp/blob/master/lab02.2-building_bots/2_Azure_Search.md).
 
 ## Next Steps
 
--   [Lab 08-01: Detect Language](../Lab8-Detect_Language/01-Introduction.md)
+- [Lab 08-01: Detect Language](../Lab8-Detect_Language/01-Introduction.md)

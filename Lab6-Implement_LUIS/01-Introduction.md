@@ -8,4 +8,4 @@ We're going to build an end-to-end scenario that allows you to pull in your own 
 
 ## Next Steps
 
--   [Lab 06-02: Implement LUIS](../Lab6-Implement_LUIS/02-Implement_LUIS.md)
+- [Lab 06-02: Implement LUIS](../Lab6-Implement_LUIS/02-Implement_LUIS.md)

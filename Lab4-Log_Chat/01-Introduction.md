@@ -16,4 +16,4 @@ In the course of the following labs, we'll walk through how we can enable chat l
 
 ## Next Steps
 
--   [Lab 04-02: Log Chat](../Lab4-Log_Chat/02-Logging_Chat.md)
+- [Lab 04-02: Log Chat](../Lab4-Log_Chat/02-Logging_Chat.md)

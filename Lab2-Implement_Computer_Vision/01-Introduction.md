@@ -6,4 +6,4 @@ This hands-on lab guides you through creating an intelligent console application
 
 ## Next Steps
 
--   [Lab 02-02: Implement Computer Vision](../Lab2-Implement_Computer_Vision/02-Implement_Computer_Vision.md)
+- [Lab 02-02: Implement Computer Vision](../Lab2-Implement_Computer_Vision/02-Implement_Computer_Vision.md)

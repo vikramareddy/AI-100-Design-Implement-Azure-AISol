@@ -122,32 +122,32 @@ For these changes to be picked up by your bot, you must re-train and re-publish 
 
 > Fun Aside: The Suggested Utterances are extremely powerful.  LUIS makes smart decisions about which utterances to surface.  It chooses the ones that will help it improve the most to have manually labeled by a human-in-the-loop.  For example, if the LUIS model predicted that a given utterance mapped to Intent1 with 47% confidence and predicted that it mapped to Intent2 with 48% confidence, that is a strong candidate to surface to a human to manually map, since the model is very close between two intents.  
 
-Now that we can use our LUIS model to figure out the user's intent, let's integrate Azure search to find our pictures.  
+Now that we can use our LUIS model to figure out the user's intent, let's integrate Azure Cognitive Search to find our pictures.  
 
-### Lab: Configure your bot for Azure Search 
+### Lab: Configure your bot for Azure Cognitive Search
 
-First, we need to provide our bot with the relevant information to connect to an Azure Search index.  The best place to store connection information is in the configuration file.  
+First, we need to provide our bot with the relevant information to connect to an Azure Cognitive Search index.  The best place to store connection information is in the configuration file.  
 
 Open Web.config and in the appSettings section, add the following:
 
-```xml    
-    <!-- Azure Search Settings -->
+```xml
+    <!-- Azure Cognitive Search Settings -->
     <add key="SearchDialogsServiceName" value="" />
     <add key="SearchDialogsServiceKey" value="" />
     <add key="SearchDialogsIndexName" value="images" />
 ```
 
-Set the value for the SearchDialogsServiceName to be the name of the Azure Search Service that you created earlier.  If needed, go back and look this up in the [Azure portal](https://portal.azure.com).  
+Set the value for the SearchDialogsServiceName to be the name of the Azure Cognitive Search Service that you created earlier.  If needed, go back and look this up in the [Azure portal](https://portal.azure.com).  
 
-Set the value for the SearchDialogsServiceKey to be the key for this service.  This can be found in the [Azure portal](https://portal.azure.com) under the Keys section for your Azure Search.  In the below screenshot, the SearchDialogsServiceName would be "aiimmersionsearch" and the SearchDialogsServiceKey would be "375...".  
+Set the value for the SearchDialogsServiceKey to be the key for this service.  This can be found in the [Azure portal](https://portal.azure.com) under the Keys section for your Azure Cognitive Search.  In the below screenshot, the SearchDialogsServiceName would be "aiimmersionsearch" and the SearchDialogsServiceKey would be "375...".  
 
-![Azure Search Settings](./resources/assets/AzureSearchSettings.jpg) 
+![Azure Cognitive Search Settings](./resources/assets/AzureSearchSettings.jpg) 
 
-### Lab: Update the bot to use Azure Search
+### Lab: Update the bot to use Azure Cognitive Search
 
-Next, we'll update the bot to call Azure Search.  First, open Tools-->NuGet Package Manager-->Manage NuGet Packages for Solution.  In the search box, type "Microsoft.Azure.Search".  Select the corresponding library, check the box that indicates your project, and install it.  It may install other dependencies as well. Under installed packages, you may also need to update the "Newtonsoft.Json" package.
+Next, we'll update the bot to call Azure Cognitive Search.  First, open Tools-->NuGet Package Manager-->Manage NuGet Packages for Solution.  In the search box, type "Microsoft.Azure.Search".  Select the corresponding library, check the box that indicates your project, and install it.  It may install other dependencies as well. Under installed packages, you may also need to update the "Newtonsoft.Json" package.
 
-![Azure Search NuGet](./resources/assets/AzureSearchNuGet.jpg) 
+![Azure Cognitive Search NuGet](./resources/assets/AzureSearchNuGet.jpg) 
 
 Right-click on your project in the Solution Explorer of Visual Studio, and select Add-->New Folder.  Create a folder called "Models".  Then right-click on the Models folder, and select Add-->Existing Item.  Do this twice to add these two files under the Models folder (make sure to adjust your namespaces if necessary):
 1. [ImageMapper.cs](./resources/code/Models/ImageMapper.cs)

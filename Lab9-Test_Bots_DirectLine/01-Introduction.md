@@ -6,4 +6,4 @@ This hands-on lab guides you through some of the basics of testing bots. This wo
 
 ## Next Steps
 
--   [Lab 09-02: Test Bots Directline](../Lab9-Test_Bots_DirectLine/02-Test_Bots_DirectLine.md)
+- [Lab 09-02: Test Bots Directline](../Lab9-Test_Bots_DirectLine/02-Test_Bots_DirectLine.md)
