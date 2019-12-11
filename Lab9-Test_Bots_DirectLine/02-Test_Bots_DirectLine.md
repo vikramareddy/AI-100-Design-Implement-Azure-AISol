@@ -1,6 +1,6 @@
 # Lab 9: Test Bots in DirectLine
 
-##  Introduction
+## Introduction
 
 Communication directly with your bot may be required in some situations. For example, you may want to perform functional tests with a hosted bot. Communication between your bot and your own client application can be performed using the [Direct Line API](https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts).
 
@@ -39,29 +39,29 @@ Ensure that you update the **appsettings.json** file with all the necessary valu
 
 ## Lab 9.1: Publish Your Bot
 
-1.  Open your **PictureBot** solution
+1. Open your **PictureBot** solution
 
-1.  Right-click the project and select **Publish**
+1. Right-click the project and select **Publish**
 
-1.  In the publish dialog, select **Select Existing**, then click **Publish**
+1. In the publish dialog, select **Select Existing**, then select **Publish**
 
-1.  If prompted, login using the account you have used through the labs
+1. If prompted, login using the account you have used through the labs
 
-1.  Select the subscription you have been using
+1. Select the subscription you have been using
 
-1.  Expand the resource group and select the picture bot app service we created in Lab 3
+1. Expand the resource group and select the picture bot app service we created in Lab 3
 
-1.  Click **OK**
+1. Select **OK**
 
 > **Note** Depending on the path you took to get to this lab, you may need to publish a second time otherwise you may get the echo bot service otherwise when you test below.  Republish the bot, only this time change the publish settings to remove existing files.  
 
 ## Lab 9.2: Setting up the Direct Line channel
 
-1.  In the portal, locate your published PictureBot **web app bot** and navigate to the **Channels** tab. 
+1. In the portal, locate your published PictureBot **web app bot** and navigate to the **Channels** tab.
 
-1.  Select the Direct Line icon (looks like a globe). You should see a **Default Site** displayed. 
+1. Select the Direct Line icon (looks like a globe). You should see a **Default Site** displayed.
 
-1.  For the **Secret keys**, click **Show** and store one of the secret keys in Notepad, or wherever you are keeping track of your keys. 
+1. For the **Secret keys**, select **Show** and store one of the secret keys in Notepad, or wherever you are keeping track of your keys.
 
 You can read detailed instructions on [enabling the Direct Line channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directline?view=azure-bot-service-4.0) and [secrets and tokens](https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-3.0#secrets-and-tokens).
 
@@ -71,28 +71,28 @@ We'll create a console application to help us understand how Direct Line can all
 
 > **Note** The instructions and code here have been modified from the [best practices in the documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-direct-line?view=azure-bot-service-4.0&tabs=cscreatebot%2Ccsclientapp%2Ccsrunclient).
 
-1.  If not already open, open your **PictureBot** solution in Visual Studio. 
+1. If not already open, open your **PictureBot** solution in Visual Studio.
 
-1.  Right-click on the solution in Solution Explorer, then select **Add > New Project**. 
+1. Right-click on the solution in Solution Explorer, then select **Add > New Project**.
 
-1.  Search for **Console App (.NET Core)**, select it and click **Next**
+1. Search for **Console App (.NET Core)**, select it and select **Next**
 
-1.  For the name, type **PictureBotDL**
+1. For the name, type **PictureBotDL**
 
-1.  Select **Create**.
+1. Select **Create**.
 
-**Step 2** - Add NuGet packages to PictureBotDL
+### Add NuGet packages to PictureBotDL
 
-1.  Right-click on the PictureBotDL project and select **Manage NuGet Packages**. 
+1. Right-click on the PictureBotDL project and select **Manage NuGet Packages**.
 
-1.  Within the **Browse** tab , search and install/update the following:
+1. Within the **Browse** tab , search and install/update the following:
 
-+   Microsoft.Bot.Connector.DirectLine
-+   Microsoft.Rest.ClientRuntime
+- Microsoft.Bot.Connector.DirectLine
+- Microsoft.Rest.ClientRuntime
 
-1.  Open **Program.cs**
+1. Open **Program.cs**
 
-1.  Replace the contents of **Program.cs** (within PictureBotDL) with the following:
+1. Replace the contents of **Program.cs** (within PictureBotDL) with the following:
 
 ```csharp
 using System;
@@ -257,19 +257,20 @@ namespace PictureBotDL
     }
 }
 ```
+
 > **Note** this code was slightly modified from [the documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-direct-line?view=azure-bot-service-4.0&tabs=cscreatebot%2Ccsclientapp%2Ccsrunclient#create-the-console-client-app) to include a few things we'll use in the next lab sections.
 
-1.  In **Program.cs**, update the direct line secret and bot id to your specific values.
+1. In **Program.cs**, update the direct line secret and bot id to your specific values.
 
 Spend some time reviewing this sample code. It's a good exercise to make sure you understand how we're connecting to our PictureBot and getting responses.
 
-**Step 4** - Run the app
+### Run the app
 
-1.  Right-click on the **PictureBotDL** project and select **Set as Startup Project**. 
+1. Right-click on the **PictureBotDL** project and select **Set as Startup Project**.
 
-1.  Next, press **F5** to run the app 
+1. Next, press **F5** to run the app
 
-1.  Have a conversation with the bot using the commandline application
+1. Have a conversation with the bot using the commandline application
 
 ![Console App](../images//consoleapp.png)
 
@@ -283,11 +284,11 @@ Because we have the conversation ID, we can retrieve user and bot messages using
 
 In this lab, we will go through using Postman (a web-based client) to retrieve messages.
 
-**Step 1** - Download Postman
+### Download Postman
 
-1.  [Download the native app for your platform](https://www.getpostman.com/apps). You may need to create a simple account.
+1. [Download the native app for your platform](https://www.getpostman.com/apps). You may need to create a simple account.
 
-**Step 2**
+### Test the App
 
 Using Direct Line API, a client can send messages to your bot by issuing HTTP Post requests. A client can receive messages from your bot either via WebSocket stream or by issuing HTTP GET requests. In this lab, we will explore HTTP Get option to receive messages.
 
@@ -301,25 +302,25 @@ Postman makes this very easy for us to configure:
 
 ![Bearer Token](../images//bearer.png)
 
-1.  Open **Postman**
+1. Open **Postman**
 
-1.  For the type, ensure that **GET** is selected
+1. For the type, ensure that **GET** is selected
 
-1.  For the url, type **https://directline.botframework.com/api/conversations/{conversationId}/messages**.  Be sure to replace the converstationId with your specific converstation id
+1. For the url, type **https://directline.botframework.com/api/conversations/{conversationId}/messages**.  Be sure to replace the conversationId with your specific conversation id
 
-1.  Click **Authorization**, for the type, select **Bearer Token**
+1. Select **Authorization**, for the type, select **Bearer Token**
 
-1.  Set the value to **{Your Direct Line Secret}**
+1. Set the value to **{Your Direct Line Secret}**
 
-1.  Finally, select **Send**. 
+1. Finally, select **Send**.
 
-1.  Inspect your results. 
+1. Inspect your results.
 
-1.  Create a new conversation with your console app and be sure to search for pictures. 
+1. Create a new conversation with your console app and be sure to search for pictures.
 
-1.  Create a new request using Postman using the new converstation id. 
+1. Create a new request using Postman using the new conversation id.
 
-1.  Inspect the response returned.  You should find the image url displayed within the images array of the response
+1. Inspect the response returned.  You should find the image url displayed within the images array of the response
 
 ![Images Array Example](../images//imagesarray.png)
 
@@ -329,6 +330,6 @@ Have extra time? Can you leverage curl (download link: https://curl.haxx.se/down
 
 > Hint: your command may look similar to `curl -H "Authorization:Bearer {SecretKey}" https://directline.botframework.com/api/conversations/{conversationId}/messages -XGET`
 
-##  Resources
+## Resources
 
--   [Direct Line API](https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts)
+- [Direct Line API](https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts)

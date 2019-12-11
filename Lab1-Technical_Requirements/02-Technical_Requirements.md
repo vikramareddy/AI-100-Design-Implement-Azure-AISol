@@ -49,9 +49,9 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1. Open the [Azure Portal](https://portal.azure.com)
 
-2. Click **+ Create a Resource** and then enter **cognitive services** in the search box
+2. Select **+ Create a Resource** and then enter **cognitive services** in the search box
 
-3. Choose **Cognitive Services** from the available options, then click **Create**
+3. Choose **Cognitive Services** from the available options, then select **Create**
 
 > **Note** Again to reiterate, you can create specific cognitive services resources or you can create a single resource that contains all the endpoints.
 
@@ -63,9 +63,9 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1. Check the confirmation checkbox
 
-1. Click **Create**
+1. Select **Create**
 
-1. Navigate to the new resource, click **Quick Start**
+1. Navigate to the new resource, select **Quick Start**
 
 1. Copy the **url** and the **endpoint** to your notepad
 
@@ -73,9 +73,9 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 #### Azure Storage Account
 
-1. In the Azure Portal, click **+ Create a Resource** and then enter **storage** in the search box 
+1. In the Azure Portal, select **+ Create a Resource** and then enter **storage** in the search box
 
-1. Choose **Storage account** from the available options, then click **Create**
+1. Choose **Storage account** from the available options, then select **Create**
 
 1. Select your subscription and resource group
 
@@ -91,17 +91,17 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
     ![The values for a storage account are displayed](../images/lab01-storageaccount.png 'Create a storage account')
 
-1. Click **Review + create**
+1. Select **Review + create**
 
-1. Click **Create**
+1. Select**Create**
 
-1. Navigate to the new resource, click **Access Keys**
+1. Navigate to the new resource, select **Access Keys**
 
 1. Copy the **Connection string** to your notepad
 
     ![The Access Keys and Connection string value is highlighted](../images/lab01-storageaccountkeys.png 'Copy the connection string')
 
-1. Select **Overview**, then click **Containers**
+1. Select **Overview**, then select **Containers**
 
     ![The overview and containers links are highlighted](../images/lab01-storageaccountcontainers.png 'Open the storage account containers')
 
@@ -117,11 +117,11 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1. Open the [Azure Portal](https://portal.azure.com)
 
-1. Click **"+ Create a Resource"** and then enter **cosmos** in the search box
+1. Select **"+ Create a Resource"** and then enter **cosmos** in the search box
 
 1. Choose **Azure Cosmos DB** from the available options.  
 
-1. Click **Create**
+1. Select **Create**
 
 1. Select your subscription and resource group
 
@@ -131,9 +131,9 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
     ![The cosmosdb creation details are populated.](../images/lab01-cosmoscreate.png 'Create a cosmosdb resource')
 
-1. Click **Review + create**
+1. Select **Review + create**
 
-1. Click **Create**
+1. Select **Create**
 
 1. Navigate to the new resource, under **Settings**, select **Keys**
 
@@ -147,13 +147,13 @@ We will use the Bot Builder template for C# to create bots in this course.
 
 1. Open a browser window to [Bot Builder SDK v4 Template for C# here](https://marketplace.visualstudio.com/items?itemName=BotBuilder.botbuilderv4)
 
-1. Click **Download**
+1. Select **Download**
 
 1. Navigate to the download folder location and double-click on the install
 
-1. Ensure that all versions of Visual Studio are selected and click **Install**.  If prompted, click **End Tasks**.  
+1. Ensure that all versions of Visual Studio are selected and select **Install**.  If prompted, select **End Tasks**.  
 
-1. Click **Close**. You should now have the bot templates added to your Visual Studio templates.
+1. Select **Close**. You should now have the bot templates added to your Visual Studio templates.
 
 ### Bot Emulator
 

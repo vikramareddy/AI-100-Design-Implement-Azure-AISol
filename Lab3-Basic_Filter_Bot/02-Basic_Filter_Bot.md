@@ -22,9 +22,9 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. In the portal, navigate to your resource group, then click **+Add** and search for **bot**.
+1. In the portal, navigate to your resource group, then select **+Add** and search for **bot**.
 
-1. Select **Web App Bot**, and click **Create**.
+1. Select **Web App Bot**, and select **Create**.
 
 1. For the name, you'll have to create a unique identifier. We recommend using something along the lines of PictureBot[i][n] where [i] is your initials and [n] is a number (e.g. mine would be PictureBotamt6).
 
@@ -38,35 +38,35 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
     ![Bot template area is highlighted and the language and bot type is selected.](../images/lab02-createbot.png 'Select the bot type')
 
-1. Click **OK**, make sure that **Echo Bot** is displayed.
+1. Select **OK**, make sure that **Echo Bot** is displayed.
 
 1. Configure a new App service plan (put it in the same location as your bot)
 
 1. You can choose to turn Application Insights on or off.
 
-1. **Do not** change or click on **Auto create App ID and password**, we will get to that later.
+1. **Do not** change or select on **Auto create App ID and password**, we will get to that later.
 
-1. Click **Create**
+1. Select **Create**
 
 1. When it's deployed, navigate to the new Azure Web App Bot Resource.
 
-1. Under **Bot Management**, click **Settings**
+1. Under **Bot Management**, select **Settings**
 
-1. Click the **Manage** link for the **Microsoft App ID**
+1. Select the **Manage** link for the **Microsoft App ID**
 
-![Click the Manage link](../images/ManageBot.png)
+![Select the Manage link](../images/ManageBot.png)
 
-1. Click **New client secret**
+1. Select **New client secret**
 
 1. For the name, type **PictureBot**
 
 1. For the expires, select **Never**
 
-1. Click **Add**
+1. Select **Add**
 
 1. Record the secret into notepad or similar for later us in the lab(s).
 
-1. Click **Overview**, record the application id into notepad or similar for later us in the lab(s).
+1. Select **Overview**, record the application id into notepad or similar for later us in the lab(s).
 
 1. Navigate back to the **web app bot** resource, under **Bot management**, select the **Test in Web Chat** tab
 
@@ -78,17 +78,17 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1. Open **Visual Studio 2019** or later
 
-1. Click **Create new project**, search for **bot**.
+1. Select **Create new project**, search for **bot**.
 
 1. Scroll down until you see **Echo Bot (Bot Framework v4)**
 
 ![Select the Echo Bot project template](../images/NewBotProject.png)
 
-1. Click **Next**
+1. Select **Next**
 
 > **Note** If you do not see the Echo Bot template, you need to install the Visual Studio add-in from the pre-req steps.
 
-1. For the name, type **PictureBot**, click **Create**
+1. For the name, type **PictureBot**, select **Create**
 
 1. Spend some time looking at all of the different things that are generated from the Echo Bot template. We won't spend time explaining every single file, but we **highly recommend** spending some time **later** working through and reviewing this sample (and the other Web App Bot sample - Basic Bot), if you have not already. It contains important and useful shells needed for bot development. You can find it and other useful shells and samples [here](https://github.com/Microsoft/BotBuilder-Samples).
 
@@ -111,7 +111,7 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1. Right-click the project, select **Manage Nuget Packagaes**
 
-1. Click the **Browse** tab, and install the following packages, ensure that you are using version **4.5.1**:
+1. Select the **Browse** tab, and install the following packages, ensure that you are using version **4.5.1**:
 
 * Microsoft.Bot.Builder.Azure
 * Microsoft.Bot.Builder.AI.Luis
@@ -149,9 +149,9 @@ A few things to **Note**
 
 To interact with your bot:
 
-* Launch the Bot Framework Emulator (note we are using the v4 Emulator).  Click **Start**, then search for **Bot Emulator**.
+* Launch the Bot Framework Emulator (note we are using the v4 Emulator).  Select **Start**, then search for **Bot Emulator**.
 
-* On the welcome page, click **Create a new bot configuration**
+* On the welcome page, select **Create a new bot configuration**
 
 * For the name, type **PictureBot**
 
@@ -161,7 +161,7 @@ To interact with your bot:
 
 >**Note** If you do not enter id and secret values into the bot settings you would also not need to enter the values in the bot emulator
 
-* Click **Save and connect**, then save your .bot file locally
+* Select **Save and connect**, then save your .bot file locally
 
 * You should now be able to converse with the bot.
 

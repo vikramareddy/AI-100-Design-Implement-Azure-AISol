@@ -83,7 +83,7 @@ Once you're connected, there are several things you need to do to set up the DSV
 
 1. Navigate to this repository in Firefox, and download it as a zip file. Extract all the files, and move the folder for this lab to your Desktop.
 2. Open "ImageProcessing.sln" which is under resources>code>ImageProcessing. It may take a while for Visual Studio to open for the first time, and you will have to log in.
-3. Once it's open, you will be prompted to install the SDK for Windows 10 App Development (UWP). Follow the prompts to install it. If you aren't prompted, right click on TestApp and select "Reload project", then you will be prompted.
+3. Once it's open, you will be prompted to install the SDK for Windows 10 App Development (UWP). Follow the prompts to install it. If you aren't prompted, right-click on TestApp and select "Reload project", then you will be prompted.
 4. While it's installing, there are a few tasks you can complete: 
 	- Type in the Cortana search bar "For developers settings" and change the settings to "Developer Mode".
 	- Type in the Cortana search bar "gpedit.msc" and push enter. Enable the following policy: Computer Configuration>Windows Settings>Security Settings>Local Policies>Security Options>User Account Control: Admin Approval Mode for the Built-in Administrator account
