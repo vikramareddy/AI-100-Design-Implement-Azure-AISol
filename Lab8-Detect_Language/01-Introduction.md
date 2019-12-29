@@ -8,4 +8,4 @@ If you have trained your bot or integrated it with QnA Maker but have only done 
 
 ## Next Steps
 
-- [Lab 09-02: Detect Language](../Lab8-Detect_Language/02-Detect_Language.md)
+- [Lab 08-02: Detect Language](../Lab8-Detect_Language/02-Detect_Language.md)
