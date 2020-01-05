@@ -67,7 +67,7 @@ While the first lab focuses on the [Computer Vision](https://www.microsoft.com/c
 
 1. Navigate to the new resource, select **Quick Start**
 
-1. Copy the **url** and the **endpoint** to your notepad
+1. Copy the **API Key** and the **url of the endpoint** to your notepad
 
     ![Quick start and the Key1 and Endpoint values are highlighted](../images/lab01-cogskeys.png 'The service key and endpoint values are highlighted')
 
