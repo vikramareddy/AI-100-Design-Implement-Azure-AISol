@@ -64,9 +64,9 @@ A bot created using the Microsoft Bot Framework can be hosted at any publicly-ac
 
 1. Select **Add**
 
-1. Record the secret into notepad or similar for later us in the lab(s).
+1. Record the secret into notepad or similar for later use in the lab(s).
 
-1. Select **Overview**, record the application id into notepad or similar for later us in the lab(s).
+1. Select **Overview**, record the application id into notepad or similar for later use in the lab(s).
 
 1. Navigate back to the **web app bot** resource, under **Bot management**, select the **Test in Web Chat** tab
 
