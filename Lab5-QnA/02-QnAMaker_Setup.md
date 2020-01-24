@@ -99,34 +99,11 @@ In this lab we will explore the QnA Maker for creating bots that connect to a pr
 
 1. Open the **Startup.cs** file, you will notice nothing special has been added here
 
-1. Open the **Bots/{BotName}.cs** file, notice this is where the QnA Maker is being initalized:
+1. Open the **Bots/{BotName}.cs** file and review the code that was generated for this file
 
-```csharp
-var qnaMaker = new QnAMaker(new QnAMakerEndpoint
-{
-    KnowledgeBaseId = _configuration["QnAKnowledgebaseId"],
-    EndpointKey = _configuration["QnAAuthKey"],
-    Host = GetHostname()
-},
-null,
-httpClient);
-```
+1. Open the BotService.cs file and review the code that was generated for this file.
 
-and then called:
-
-```csharp
-var response = await qnaMaker.GetAnswersAsync(turnContext);
-if (response != null && response.Length > 0)
-{
-    await turnContext.SendActivityAsync(MessageFactory.Text(response[0].Answer), cancellationToken);
-}
-else
-{
-    await turnContext.SendActivityAsync(MessageFactory.Text("No QnA Maker answers were found."), cancellationToken);
-}
-```
-
-As you can see, it is very simple to add a generated QnA Maker to your own bots with just a few lines of code.
+[!NOTE] The previous steps for reviewing the generated code are correct for the solution that was downloaded during the authoring of this lab.  The solution files may change from time to time based on updates to the frameworks and SDKs so the solution files may differ.  The key aspect here is just have you review the code that is automatically generated from the tool.
 
 ## Going Further
 
