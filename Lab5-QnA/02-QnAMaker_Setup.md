@@ -101,7 +101,7 @@ In this lab we will explore the QnA Maker for creating bots that connect to a pr
 
 1. Open the **Bots/{BotName}.cs** file and review the code that was generated for this file
 
-1. Open the BotService.cs file and review the code that was generated for this file.
+1. Open the **BotService.cs** file and review the code that was generated for this file.
 
 [!NOTE] The previous steps for reviewing the generated code are correct for the solution that was downloaded during the authoring of this lab.  The solution files may change from time to time based on updates to the frameworks and SDKs so the solution files may differ.  The key aspect here is just have you review the code that is automatically generated from the tool.
 
