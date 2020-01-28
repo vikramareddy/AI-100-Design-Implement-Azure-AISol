@@ -149,6 +149,53 @@ return result;
 
 Want to make sure you set up `ImageProcessor.cs` correctly? You can find the full class [here](./code/Finished/ProcessingLibrary/ImageProcessor.cs).
 
+### Exploring Cosmos DB	
+
+Azure Cosmos DB is Microsoft's resilient NoSQL PaaS solution and is incredibly useful for storing loosely structured data like we have with our image metadata results. There are other possible choices (Azure Table Storage, SQL Server), but Cosmos DB gives us the flexibility to evolve our schema freely (like adding data for new services), query it easily, and can be quickly integrated into Azure Cognitive Search (which we'll do in a later lab).	
+
+## Lab 2.5 (optional): Understanding CosmosDBHelper	
+
+Cosmos DB is not a focus of this lab, but if you're interested in what's going on - here are some highlights from the code we will be using:	
+1. Navigate to the `CosmosDBHelper.cs` class in the `ImageStorageLibrary` project. Review the code and the comments. Many of the implementations used can be found in the [Getting Started guide](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-get-started).	
+1. Go to the `TestCLI` project's `Util.cs` file and review  the `ImageMetadata` class (code and comments). This is where we turn the `ImageInsights` we retrieve from Cognitive Services into appropriate Metadata to be stored into Cosmos DB.	
+- Finally, look in `Program.cs` in `TestCLI` and at  `ProcessDirectoryAsync`. First, we check if the image and metadata have already been uploaded - we can use `CosmosDBHelper` to find the document by ID and to return `null` if the document doesn't exist. Next, if we've set `forceUpdate` or the image hasn't been processed before, we'll call the Cognitive Services using `ImageProcessor` from the `ProcessingLibrary` and retrieve the `ImageInsights`, which we add to our current `ImageMetadata`.  	
+- Once all of that is complete, we can store our image - first the actual image into Blob Storage using our `BlobStorageHelper` instance, and then the `ImageMetadata` into Cosmos DB using our `CosmosDBHelper` instance. If the document already existed (based on our previous check), we should update the existing document. Otherwise, we should be creating a new one.	
+
+## Lab 2.6: Loading Images using TestCLI	
+
+We will implement the main processing and storage code as a command-line/console application because this allows you to concentrate on the processing code without having to worry about event loops, forms, or any other UX related distractions. Feel free to add your own UX later.	
+1. In the **TestCLI** project, open the **settings.json** file	
+1. Add your specific environment settings from [Lab1-Technical_Requirements.md](../Lab1-Technical_Requirements/02-Technical_Requirements.md)	
+
+> **Note** the url for cognitive services should end with **/vision/v1.0** for the project oxford apis.  For example `https://westus2.api.cognitive.microsoft.com/vision/v1.0`.	
+
+1. If you have not already done so, compile the project	
+1. Open a command prompt and navigate to the build directory for the **TestCLI** project.  It should something like **{GitHubDir}\Lab2-Implement_Computer_Vision\code\Starter\TestCLI**.
+
+> **NOTE** Do not navigate to the debug directory	
+
+1. Run command **dotnet run**	
+```cmd	
+Usage:  [options]	
+Options:	
+-force            Use to force update even if file has already been added.	
+-settings         The settings file (optional, will use embedded resource settings.json if not set)	
+-process          The directory to process	
+-query            The query to run	
+-? | -h | --help  Show help information	
+```	
+By default, it will load your settings from `settings.json` (it builds it into the `.exe`), but you can provide your own using the `-settings` flag. To load images (and their metadata from Cognitive Services) into your cloud storage, you can just tell _TestCLI_ to `-process` your image directory as follows:	
+```cmd	
+dotnet run -- -process <%GitHubDir%>\AI-100-Design-Implement-Azure-AISol\Lab2-Implement_Computer_Vision\sample_images	
+```	
+> **Note** Replace the <%GitHubDir%> value with the folder where you cloned the repository.	
+Once it's done processing, you can query against your Cosmos DB directly using _TestCLI_ as follows:	
+```cmd	
+dotnet run -- -query "select * from images"	
+```	
+Take some time to look through the sample images (you can find them in /sample_images) and compare the images to the results in your application.	
+> **Note** You can also browse the results in the CosmosDb resource in Azure.  Open the resource, then select **Data Explorer**.  Expand the **metadata** database, then select the **items** node.  You will see several json documents that contains your results.
+
 
 ## Credits
 
