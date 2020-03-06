@@ -102,7 +102,8 @@ namespace PictureBot
                 // Add middleware below with "middleware.Add(...."
                 // Add Regex below
                 middleware.Add(new RegExpRecognizerMiddleware()
-                .AddIntent("search", new Regex("search picture(?:s)*(.*)|search pic(?:s)*(.*)", RegexOptions.IgnoreCase))
+                // intended for future testing
+                // .AddIntent("search", new Regex("search picture(?:s)*(.*)|search pic(?:s)*(.*)", RegexOptions.IgnoreCase))
                 .AddIntent("share", new Regex("share picture(?:s)*(.*)|share pic(?:s)*(.*)", RegexOptions.IgnoreCase))
                 .AddIntent("order", new Regex("order picture(?:s)*(.*)|order print(?:s)*(.*)|order pic(?:s)*(.*)", RegexOptions.IgnoreCase))
                 .AddIntent("help", new Regex("help(.*)", RegexOptions.IgnoreCase)));
