@@ -140,6 +140,10 @@ default:
             await MainResponses.ReplyWithShareConfirmation(stepContext.Context);
             await MainResponses.ReplyWithLuisScore(stepContext.Context, topIntent.Value.intent, topIntent.Value.score);
             break;
+        case "SearchPic":
+            await MainResponses.ReplyWithSearchConfirmation(stepContext.Context);
+            await MainResponses.ReplyWithLuisScore(stepContext.Context, topIntent.Value.intent, topIntent.Value.score);
+            break;
         default:
             await MainResponses.ReplyWithConfused(stepContext.Context);
             break;
