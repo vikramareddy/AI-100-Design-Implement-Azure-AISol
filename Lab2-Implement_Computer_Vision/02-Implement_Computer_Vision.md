@@ -92,6 +92,11 @@ using System.Threading.Tasks;
 using Microsoft.ProjectOxford.Vision;
 using ServiceHelpers;
 ```
+1. You will likely be required to install the NuGet packages for Project Oxford so select the **Tools** menu.
+1. Then highlight **NuGet Package Manager** and select **Manage Nuget Packages for Solution**.
+1. In the **Search** box, enter **ProjectOxford**.
+1. Choose the packages that are listed and install them for the Project
+1. In **Solution Explorer**, expand **References** under the **ImageStorageLibrary** project and verify that yellow triangles are no longer present for the **ProjectOxford** packages.
 
 [Project Oxford](https://blogs.technet.microsoft.com/machinelearning/tag/project-oxford/) was the project where many Cognitive Services got their start. As you can see, the NuGet Packages were even labeled under Project Oxford. In this scenario, we'll call `Microsoft.ProjectOxford.Vision` for the Computer Vision API. Additionally, we'll reference our service helpers (remember, these will make our lives easier). You'll have to reference different packages depending on which Cognitive Services you're leveraging in your application.
 
